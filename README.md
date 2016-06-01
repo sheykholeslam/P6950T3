@@ -6,3 +6,4 @@ Group Members:
 2. Ernest - esaw83@mun.ca
 3. Mehrzad - smalmasi@mun.ca
 4. YinZhang -yz2416@mun.ca
+5. Rufai raji - orr612@mun.ca
