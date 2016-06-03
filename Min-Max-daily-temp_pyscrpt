@@ -1,5 +1,8 @@
 #Sample script for plotting Annual cycle of Min/Max Daily Temperatures
 
+%matplotlib inline
+import numpy as np
+from matplotlib import pyplot as plt
 
 X = np.linspace(1, 365, 365, endpoint=True)
 A = a
