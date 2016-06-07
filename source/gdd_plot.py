@@ -25,3 +25,4 @@ def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
     plt.title('Accumulated Growing Degree Days', color="black", fontsize=14)
 
     plt.show()
+    plt.savefig("GDD_Plot.png")
