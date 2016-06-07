@@ -5,16 +5,16 @@ import time as time
 import math
 from checkGDD import checkGDD
 
-def download_data(stationid, start, end, baseTemp, smonth):
-    while (start<=end):
-        url = 'http://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID='+str(stationid)+'&Year='+str(start)+'&Month='+str(smonth)+'&Day=31&timeframe=2&submit= Download+Data'
-        filename=wget.download(url)
-        hourly_data=pd.read_csv(filename,encoding='ISO-8859-1',delimiter=",", skiprows=25)
-        df = pd.DataFrame(hourly_data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
-        df.replace('', np.nan, inplace=True)
-        df2 = df.dropna()
-        df2['GDD']  = ((df2['Max Temp (°C)']+df2['Min Temp (°C)'])/2)- baseTemp
-        df2['GDD'] = checkGDD(df2['GDD'])        
-        A, B = np.array(df2['Min Temp (°C)']), np.array(df2['Max Temp (°C)'])
-        start=start+1 
-    return df2, A, B
+def download_data(stationId, startYear, endYear, baseTemp):
+    while (startYear <= endYear):
+        url = 'http://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID='+str(stationId)+'&Year='+str(startYear)+'&Month=12&Day=31&timeframe=2&submit= Download+Data'
+        filename = wget.download(url)
+        hourly_data = pd.read_csv(filename, encoding = 'ISO-8859-1', delimiter = ",", skiprows=25)
+        Data = pd.DataFrame(hourly_data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
+        Data.replace('', np.nan, inplace = True)
+        Data2 = Data.dropna()
+        Data2['GDD'] = ((Data2['Max Temp (°C)'] + Data2['Min Temp (°C)'])/2)- baseTemp
+        Data2['GDD'] = checkGDD(Data2['GDD'])        
+        MinTemp, MaxTemp = np.array(Data2['Min Temp (°C)']), np.array(Data2['Max Temp (°C)'])
+        startYear = startYear + 1 
+    return Data2, MinTemp, MaxTemp
