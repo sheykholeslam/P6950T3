@@ -1,4 +1,5 @@
 # CMSC6950 - Group # 3
+## Project Name : Growing degree-day
 
 Group Members: 
 
