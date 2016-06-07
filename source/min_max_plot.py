@@ -24,3 +24,4 @@ def min_max_plot(A, B, cityName):
     plt.title('Min/Max Daily Temperatures in 2015 for '+cityName, color="black", fontsize=14)
 
     plt.show()
+    plt.savefig("min_max_plot.png")
