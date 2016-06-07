@@ -12,9 +12,9 @@ def download_data(stationId, startYear, endYear, baseTemp):
         hourly_data = pd.read_csv(filename, encoding = 'ISO-8859-1', delimiter = ",", skiprows=25)
         Data = pd.DataFrame(hourly_data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
         Data.replace('', np.nan, inplace = True)
-        Data2 = Data.dropna()
-        Data2['GDD'] = ((Data2['Max Temp (°C)'] + Data2['Min Temp (°C)'])/2)- baseTemp
-        Data2['GDD'] = checkGDD(Data2['GDD'])        
-        MinTemp, MaxTemp = np.array(Data2['Min Temp (°C)']), np.array(Data2['Max Temp (°C)'])
+        Data = Data.dropna()
+        Data['GDD'] = ((Data['Max Temp (°C)'] + Data['Min Temp (°C)'])/2)- baseTemp
+        Data['GDD'] = checkGDD(Data['GDD'])        
+        MinTemp, MaxTemp = np.array(Data['Min Temp (°C)']), np.array(Data['Max Temp (°C)'])
         startYear = startYear + 1 
-    return Data2, MinTemp, MaxTemp
+    return Data, MinTemp, MaxTemp
