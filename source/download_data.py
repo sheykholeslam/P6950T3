@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import time as time
 import math
+import os
 from checkGDD import checkGDD
 
 def download_data(stationId, startYear, endYear, baseTemp):
@@ -16,5 +17,18 @@ def download_data(stationId, startYear, endYear, baseTemp):
         Data['GDD'] = ((Data['Max Temp (°C)'] + Data['Min Temp (°C)'])/2)- baseTemp
         Data['GDD'] = checkGDD(Data['GDD'])        
         MinTemp, MaxTemp = np.array(Data['Min Temp (°C)']), np.array(Data['Max Temp (°C)'])
-        startYear = startYear + 1 
+        startYear = startYear + 1
+	## Save Data in Local directory as cvs file
+        currentpath = os.getcwd()
+        filepath= (currentpath+'/Desktop/download_data/data.csv')
+        directory = os.path.dirname(filepath)
+        if not os.path.exists(directory):
+            try:
+                os.makedirs(directory)
+            except OSError as error:
+                if error.errno != errno.EEXIST:
+                    raise
+        with open(filepath, 'w') as datafile:
+            Data.to_csv(filepath, sep='\t', encoding='utf-8')
+ 
     return Data, MinTemp, MaxTemp
