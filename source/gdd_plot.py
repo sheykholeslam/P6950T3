@@ -23,6 +23,5 @@ def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
     ax.set_xlabel('Months', color='black', fontsize=14)
     ax.set_ylabel('Cumulative GDD (>10°C)', color='black', fontsize=14)
     plt.title('Accumulated Growing Degree Days', color="black", fontsize=14)
-
-    plt.show()
-    plt.savefig("GDD_Plot.png")
+    return plt
+    
