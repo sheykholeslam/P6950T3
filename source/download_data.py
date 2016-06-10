@@ -18,9 +18,10 @@ def download_data(stationId, startYear, endYear, baseTemp):
         Data['GDD'] = checkGDD(Data['GDD'])        
         MinTemp, MaxTemp = np.array(Data['Min Temp (°C)']), np.array(Data['Max Temp (°C)'])
         startYear = startYear + 1
-	## Save Data in Local directory as cvs file
+		
+	# Save Data in Local directory as cvs file
         currentpath = os.getcwd()
-        filepath= (currentpath+'/Desktop/download_data/data.csv')
+        filepath= (currentpath+'/DataFiles/GDD_Data.csv')
         directory = os.path.dirname(filepath)
         if not os.path.exists(directory):
             try:

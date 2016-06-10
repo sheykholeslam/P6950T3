@@ -12,9 +12,11 @@ def Main():
 	for i in range(len(stationId)):
 		data, minTemp, maxTemp = download_data(stationId[i], startYear, endYear, baseTemp)
 		cityData.append(data['GDD'])
-		min_max_plot(minTemp, maxTemp, cityName[i])
+		max_min_plt = min_max_plot(minTemp, maxTemp, cityName[i])
+		max_min_plt.savefig("./DataFiles/min_max_plot_"+str(cityName[i])+".png")
+		max_min_plt.clf()
 		
-	gdd_plot(cityData[0], cityData[1], cityData[2], cityName[0], cityName[1], cityName[2])
-	
+	gdd_plt = gdd_plot(cityData[0], cityData[1], cityData[2], cityName[0], cityName[1], cityName[2])
+	gdd_plt.savefig("./DataFiles/GDD_Plot.png")
 if __name__ == '__main__':
 	Main()

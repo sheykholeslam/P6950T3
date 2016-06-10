@@ -21,7 +21,5 @@ def min_max_plot(A, B, cityName):
 
     ax.set_xlabel('Days', color='black', fontsize=14)
     ax.set_ylabel('Temperature', color='black', fontsize=14)
-    plt.title('Min/Max Daily Temperatures in 2015 for '+cityName, color="black", fontsize=14)
-
-    plt.show()
-    plt.savefig("min_max_plot.png")
+    plt.title('Min/Max Daily Temperatures in 2015 for '+cityName, color="black", fontsize=14)    
+    return plt

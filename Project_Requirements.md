@@ -58,20 +58,20 @@ downloads is available here:
 Do at least four of the following tasks:
 
 1. Create an plot showing GDD like the example below for selected Canadian cities.
-  - https://mesonet.agron.iastate.edu/onsite/features/2015/05/150507.png
+  - https://mesonet.agron.iastate.edu/onsite/features/2015/05/150507.png => Lutfur and Mehrzad
 
 1. Create a map showing effective growing degrees over both all of Canada and only for the island of Newfoundland.
-  -  http://www.agr.gc.ca/resources/prod/img/env/climat/egdd_prairie_base_eng.jpg
+  -  http://www.agr.gc.ca/resources/prod/img/env/climat/egdd_prairie_base_eng.jpg => Raji and Mehrzad
 
-1. Explore how GDD calculation depends on the choice of T_base. show your results for either selected cities or create maps.
+1. Explore how GDD calculation depends on the choice of T_base. show your results for either selected cities or create maps. => Yin
 
-1. Create standalone bokeh plots embeded in your HTML presentation so that users can interactively select with the data (hover points)
+1. Create standalone bokeh plots embeded in your HTML presentation so that users can interactively select with the data (hover points) => Mohammad
 
-1. Create a bokeh server plot so that you can look at the accumulated GDD for any city in Canada.
+1. Create a bokeh server plot so that you can look at the accumulated GDD for any city in Canada. => Mohammad
 
 1. Compare GDD year over year.  Do some analysis (perhaps linear regression) to determine if GDDs have been changing in statistical significant way.  
 
-1. Time/profile your work flow and estimate the amount of time spent in each step. Explore parallelization (either using python multiprocessing or make -j n) to make your work flow execute more quickly.
+1. Time/profile your work flow and estimate the amount of time spent in each step. Explore parallelization (either using python multiprocessing or make -j n) to make your work flow execute more quickly. 
 
 ### Final task
 
