@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from extract_data_from_csv import extract_data_from_csv
 
 def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
     plt.subplot(1,1,1)
@@ -25,3 +26,16 @@ def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
     plt.title('Accumulated Growing Degree Days', color="black", fontsize=14)
     return plt
     
+def Main():
+    stationId = [50089,51157,50430]
+    cityName = ['St.John\'s', 'Montreal', 'Calgary']
+    cityData = []
+    for i in range(len(stationId)):
+        Data, Date, minTemp, maxTemp = extract_data_from_csv(cityName[i])
+        cityData.append(Data['GDD'])
+    
+    gdd_plt = gdd_plot(cityData[0], cityData[1], cityData[2], cityName[0], cityName[1], cityName[2])
+    gdd_plt.savefig("./DataFiles/GDD_Plot.png")
+
+if __name__ == '__main__':
+    Main()

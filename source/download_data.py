@@ -4,9 +4,10 @@ import pandas as pd
 import time as time
 import math
 import os
-from checkGDD import checkGDD
+import argparse
+from calculate_GDD import calculate_GDD
 
-def download_data(stationId, startYear, endYear, baseTemp):
+def download_data(stationId, cityName, startYear, endYear, baseTemp):
     while (startYear <= endYear):
         url = 'http://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID='+str(stationId)+'&Year='+str(startYear)+'&Month=12&Day=31&timeframe=2&submit= Download+Data'
         filename = wget.download(url)
@@ -14,14 +15,12 @@ def download_data(stationId, startYear, endYear, baseTemp):
         Data = pd.DataFrame(hourly_data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
         Data.replace('', np.nan, inplace = True)
         Data = Data.dropna()
-        Data['GDD'] = ((Data['Max Temp (°C)'] + Data['Min Temp (°C)'])/2)- baseTemp
-        Data['GDD'] = checkGDD(Data['GDD'])        
-        MinTemp, MaxTemp = np.array(Data['Min Temp (°C)']), np.array(Data['Max Temp (°C)'])
+        Data = calculate_GDD(Data, baseTemp)        
         startYear = startYear + 1
 		
 	# Save Data in Local directory as cvs file
         currentpath = os.getcwd()
-        filepath= (currentpath+'/DataFiles/GDD_Data.csv')
+        filepath= (currentpath+'/DataFiles/GDD_Data_'+cityName+'.csv')
         directory = os.path.dirname(filepath)
         if not os.path.exists(directory):
             try:
@@ -32,4 +31,18 @@ def download_data(stationId, startYear, endYear, baseTemp):
         with open(filepath, 'w') as datafile:
             Data.to_csv(filepath, sep='\t', encoding='utf-8')
  
-    return Data, MinTemp, MaxTemp
+def Main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("startYear", help="Please insert start year for weather history data.", type=int)
+    parser.add_argument("endYear", help="Please insert end year for weather history data.", type=int)
+    parser.add_argument("baseTemp", help="Please set base temperature.", type=int)
+	
+    args = parser.parse_args()
+	
+    stationId = [50089,51157,50430]
+    cityName = ['St.John\'s', 'Montreal', 'Calgary']
+    for i in range(len(stationId)):
+        data = download_data(stationId[i], cityName[i], args.startYear, args.endYear, args.baseTemp)
+		
+if __name__ == '__main__':
+    Main()

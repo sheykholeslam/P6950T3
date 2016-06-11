@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from extract_data_from_csv import extract_data_from_csv
 
 def min_max_plot(A, B, cityName):
     plt.subplot(1,1,1)
@@ -23,3 +24,16 @@ def min_max_plot(A, B, cityName):
     ax.set_ylabel('Temperature', color='black', fontsize=14)
     plt.title('Min/Max Daily Temperatures in 2015 for '+cityName, color="black", fontsize=14)    
     return plt
+
+	
+def Main():
+    stationId = [50089,51157,50430]
+    cityName = ['St.John\'s', 'Montreal', 'Calgary']
+    for i in range(len(stationId)):
+        Data, Date, minTemp, maxTemp = extract_data_from_csv(cityName[i])
+        max_min_plt = min_max_plot(minTemp, maxTemp, cityName[i])
+        max_min_plt.savefig("./DataFiles/min_max_plot_"+str(cityName[i])+".png")
+        max_min_plt.clf()
+
+if __name__ == '__main__':
+    Main()
