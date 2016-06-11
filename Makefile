@@ -11,4 +11,4 @@ Report.pdf : ./source/Report/Report.tex
 	
 clean : 
 	rm -rf *.csv ./source/__pycache__ DataFiles
-	rm -f Report.log Report.aux Report.pdf
+	rm -f Report.log Report.aux Report.pdf Report.toc
