@@ -3,12 +3,10 @@ import matplotlib.pyplot as plt
 import argparse
 from extract_data_from_csv import extract_data_from_csv
 
-def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
+def gdd_plot(gdd, cityName, gColor):
     plt.subplot(1,1,1)
     X = np.linspace(1, 12, 365, endpoint=True)
-    plt.plot(X, gdd1, color="blue", label = cityName1)
-    plt.plot(X, gdd2, color="red", label = cityName2)
-    plt.plot(X, gdd3, color="green", label = cityName3)
+    plt.plot(X, gdd, color=gColor, label = cityName)
     plt.legend(loc='upper left')
     ax = plt.gca() 
     ax.spines['right'].set_color('none')
@@ -31,6 +29,7 @@ def Main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
     parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
+    parser.add_argument("-gc", dest="gColor", nargs = '*', help="Please provide the colors for each city graph.")
 	
     args = parser.parse_args()
 	
@@ -39,7 +38,9 @@ def Main():
         Data, Date, minTemp, maxTemp = extract_data_from_csv(args.cityName[i])
         cityData.append(Data['GDD'])
     
-    gdd_plt = gdd_plot(cityData[0], cityData[1], cityData[2], args.cityName[0], args.cityName[1], args.cityName[2])
+    for i in range(len(cityData)):
+        gdd_plt = gdd_plot(cityData[i], args.cityName[i], args.gColor[i])
+		
     gdd_plt.savefig("./DataFiles/GDD_Plot.png")
 
 if __name__ == '__main__':
