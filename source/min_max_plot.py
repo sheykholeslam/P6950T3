@@ -29,8 +29,8 @@ def min_max_plot(A, B, cityName):
 	
 def Main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-st", dest="stationId", default = [50089,51157,50430], nargs = '*', help="Please provide a list of station Id.")
-    parser.add_argument("-ct", dest="cityName", default = ['St.Johns', 'Montreal', 'Calgary'], nargs = '*', help="Please provide a list of city names corresponding to stations.")
+    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
+    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
 	
     args = parser.parse_args()
 	

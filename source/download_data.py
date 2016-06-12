@@ -36,8 +36,8 @@ def Main():
     parser.add_argument("startYear", help="Please insert start year for weather history data.", type=int)
     parser.add_argument("endYear", help="Please insert end year for weather history data.", type=int)
     parser.add_argument("baseTemp", help="Please set base temperature.", type=int)
-    parser.add_argument("-st", dest="stationId", default = [50089,51157,50430], nargs = '*', help="Please provide a list of station Id.")
-    parser.add_argument("-ct", dest="cityName", default = ['St.Johns', 'Montreal', 'Calgary'], nargs = '*', help="Please provide a list of city names corresponding to stations.")
+    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
+    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
 	
     args = parser.parse_args()
 	
