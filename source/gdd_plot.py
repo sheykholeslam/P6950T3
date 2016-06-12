@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import argparse
 from extract_data_from_csv import extract_data_from_csv
 
 def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
@@ -27,14 +28,18 @@ def gdd_plot(gdd1, gdd2, gdd3, cityName1, cityName2, cityName3):
     return plt
     
 def Main():
-    stationId = [50089,51157,50430]
-    cityName = ['St.John\'s', 'Montreal', 'Calgary']
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-st", dest="stationId", default = [50089,51157,50430], nargs = '*', help="Please provide a list of station Id.")
+    parser.add_argument("-ct", dest="cityName", default = ['St.Johns', 'Montreal', 'Calgary'], nargs = '*', help="Please provide a list of city names corresponding to stations.")
+	
+    args = parser.parse_args()
+	
     cityData = []
-    for i in range(len(stationId)):
-        Data, Date, minTemp, maxTemp = extract_data_from_csv(cityName[i])
+    for i in range(len(args.stationId)):
+        Data, Date, minTemp, maxTemp = extract_data_from_csv(args.cityName[i])
         cityData.append(Data['GDD'])
     
-    gdd_plt = gdd_plot(cityData[0], cityData[1], cityData[2], cityName[0], cityName[1], cityName[2])
+    gdd_plt = gdd_plot(cityData[0], cityData[1], cityData[2], args.cityName[0], args.cityName[1], args.cityName[2])
     gdd_plt.savefig("./DataFiles/GDD_Plot.png")
 
 if __name__ == '__main__':
