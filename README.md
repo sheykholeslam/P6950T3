@@ -20,8 +20,8 @@ Requirements:
 -------------
 - <b>Platform :</b> Mac OS X, Ubuntu, Debian, Red Hat, Fedora.
 
-Program Run:
-------------
+Program Execute:
+----------------
 ##### Example:
 
 ```bash
