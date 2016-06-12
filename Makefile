@@ -26,3 +26,12 @@ report.pdf : $(s)Report/report.tex min_max_plot.png GDD_Plot.png
 clean : 
 	rm -rf *.csv $(s)__pycache__ DataFiles
 	rm -f report.log report.aux report.pdf report.toc
+
+help:
+	@echo "Please make sure you have installed pdflatex program.
+	@echo "# Calling the Makefile"
+	@echo "$ make"
+	@echo "# Clean the complied and data files"
+	@echo "#$ make clean"
+	@echo "# Calling by file name"
+	@echo "#$ make report.pdf"
