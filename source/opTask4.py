@@ -6,7 +6,7 @@ import os
 
 from bokeh.io import curdoc
 from bokeh.models import ColumnDataSource, DataRange1d, Range1d, VBox, HBox, Select, HoverTool, BoxSelectTool
-from bokeh.palettes import Blues4
+from bokeh.palettes import Spectral11
 from bokeh.plotting import Figure
 from scipy.signal import savgol_filter
 
@@ -79,7 +79,7 @@ def make_plot(cityData):
     TOOLS = [BoxSelectTool(), hover]
     plot = Figure(x_axis_type="datetime", plot_width=1000, tools=TOOLS)
     plot.title = "Accumulated GDD of cities of Canada"
-    colors = Blues4[0:len(cityData)]    
+    colors = Spectral11[0:len(cityData)]    
     index = 0
     for src in cityData: 
         plot.line(x='date', y='GDD',source=cityData[src], color=colors[index], line_width=4, legend=src)
