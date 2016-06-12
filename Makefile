@@ -1,12 +1,16 @@
+# Source folder path from root
 s = ./source/
 
 # Input variables and their values
 startYear = 2015
 endYear = 2015
 baseTemp = 10
+# List of cities stationId and city name. 
 stationId = -st 50089 51157 50430
 cityName = -ct 'St.Johns' 'Montreal' 'Calgary'
+# Define graph line color for each cities.
 gColor = -gc 'blue' 'red' 'green'
+
 
 all : report.pdf
 
