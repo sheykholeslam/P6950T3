@@ -1,6 +1,6 @@
 CMSC6950 - Group # 3 (Growing degree-day)
 =========================================
-This is an extended assignment for the course CMSC6950. Our group members are:
+This is an extended assignment for the course CMSC6950. Our group formation is given below:
 
 1. Mohammad Hassan - mmh474@mun.ca
 2. Ernest - esaw83@mun.ca
@@ -35,6 +35,15 @@ $ make clean
 # Calling by file name
 $ make report.pdf
 ```
+
+Project Requirements and Tasks:
+----------------
+<b>Link :</b> [Click Here](https://github.com/sheykholeslam/P6950T3/blob/master/Project_Requirements.md)
+
+Web-based Presentation:
+----------------
+<b>Link :</b> [Click Here](https://sheykholeslam.github.io/P6950T3/)
+
 
 Contents:
 ----------
