@@ -15,6 +15,7 @@ Dependencies:
 - <b>Python</b>
 - <b>Python Packages:</b> numpy, pandas, scipy, argparse, math, matplotlib, bokeh, os, wget. 
 - <b>Bash</b>
+- <b>Bokeh library</b>
 
 Requirements:
 -------------
