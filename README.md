@@ -13,7 +13,7 @@ This is an extended assignment for the course CMSC6950. Our group members are:
 Dependencies:
 -------------
 - Python
-- Python Packages: numpy, pandas, scipy, argparse, math, matplotlib, bokeh, os, wget, 
+- Python Packages: numpy, pandas, scipy, argparse, math, matplotlib, bokeh, os, wget. 
 - Bash
 
 Requirements:
