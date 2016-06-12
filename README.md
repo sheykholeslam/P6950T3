@@ -7,7 +7,7 @@ This is an extended assignment for the course CMSC6950. Our group members are:
 3. Mehrzad - smalmasi@mun.ca
 4. Yin Zhang - yz2416@mun.ca
 5. Rufai Raji - orr612@mun.ca
-6. Lutfor Rahman r97mlr@mun.ca
+6. Lutfor Rahman - r97mlr@mun.ca
 7. Mohammad - mhs137@mun.ca
 
 Dependencies:
