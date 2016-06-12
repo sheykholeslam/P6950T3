@@ -1,5 +1,6 @@
 s = ./source/
 
+# Input variables and their values
 startYear = 2015
 endYear = 2015
 baseTemp = 10
