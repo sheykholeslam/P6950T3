@@ -12,13 +12,13 @@ This is an extended assignment for the course CMSC6950. Our group members are:
 
 Dependencies:
 -------------
-- Python
+- <b>Python</b>
 - <b>Python Packages:</b> numpy, pandas, scipy, argparse, math, matplotlib, bokeh, os, wget. 
-- Bash
+- <b>Bash</b>
 
 Requirements:
 -------------
-- Platform : Mac OS X, Ubuntu, Debian, Red Hat, Fedora.
+- <b>Platform :</b> Mac OS X, Ubuntu, Debian, Red Hat, Fedora.
 
 Program Run:
 ------------
