@@ -5,7 +5,7 @@ import os
 def extract_data_from_csv(cityName):
     CurrentPath = os.getcwd()
     FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+cityName+'.csv')
-    Hourly_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = "\t" ,skiprows=0)
+    Hourly_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
     Data = pd.DataFrame(Hourly_Data, columns = ['Date/Time','Max Temp (Â°C)', 'Min Temp (Â°C)', 'GDD'])
     Data.replace('', np.nan, inplace = True)
     Data = Data.dropna()

@@ -29,7 +29,7 @@ def download_data(startYear, endYear, baseTemp, stationId, cityName):
                 if error.errno != errno.EEXIST:
                     raise
         with open(filepath, 'w') as datafile:
-            Data.to_csv(filepath, sep='\t', encoding='utf-8')
+            Data.to_csv(filepath, sep=',', encoding='utf-8')
  
 def Main():
     parser = argparse.ArgumentParser()
