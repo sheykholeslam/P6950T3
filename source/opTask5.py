@@ -62,7 +62,7 @@ def make_plot(src, city):
 
 # set up callbacks
 def update_plot(attrname, old, new):
-    src = download_data(cities[city_select.value]['ID'], startYear, endYear, baseTemp)
+    src = DataSet(city_select.value)
     source.data.update(src.data)
     plot.title = city_select.value
 
