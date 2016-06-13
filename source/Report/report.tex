@@ -23,7 +23,7 @@ Extended Assignment \\[\baselineskip]
 13th June, 2016 \\[\baselineskip] 
 \vspace{20mm} %5mm vertical space
 Submitted by \\[\baselineskip]
-{\Large Mohammad Hassan \\ Ernest \\ Mehrzad \\ Yin Zhang \\ Rufai raji \\ Lutfor Rahman \\ Mohammad\par}
+{\Large Mohammad Hassan \\ Ernest Awoonor-Williams \\ Mehrzad \\ Yin Zhang \\ Rufai raji \\ Lutfor Rahman \\ Mohammad S.\par}
 \vfill
 {\itshape Memorial University of Newfoundland \\ St. John's, Canada.\par} 
 }
@@ -42,7 +42,7 @@ Submitted by \\[\baselineskip]
 %\newpage
 
 \section{ \bf Introduction}
-Growing degree days (GDD) is simply a predictive tool used in horticulture for accessing crop maturity and development. This predictive tool is helpful in providing adequate knowledge for timing the important growth stages of plants, as well as in assessing the suitability of a region for growing specific crops of interest. As such, GDD units are a frequently used weather-based indicator for plant development assessment. The GDD calculation within a period of time is dependent on heat accumulation and is typically measured from the start of the growth cycle of a plant. It is usually defined relative to a base reference temperature which varies among crops based on their life cycles. The total GDDs over a growing season is related to plant development. The development of plants depends on the accumulation of heat. Since cool season plants have a lower reference temperature, they accumulate GDDs faster than warm season plants. Unless plants are overly stressed by drought or pests, the total GDDs can be used to predict when a crop will reach maturity. Corn, for example, requires 1360 GDD units to mature. GDDs can be computed using climatic information for any location. That computation, along with data on soil, water, and minimum and maximum temperatures, helps suggest which crops will grow best in a given region.\\ [\baselineskip] GDD has units of temperature (i.e., $^{\circ}$C or $^{\circ}$F) and is calculated by subtracting the base temperature from the average of the daily temperatures (i.e. maximum and minimum temperatures). The equation for calculating the GDD, Eqn.(\ref{eqn:gdd}), is given as follows:
+Growing degree days (GDD) is simply a predictive tool used in horticulture for accessing crop maturity and development. This predictive tool is helpful in providing adequate knowledge for timing the important growth stages of plants, as well as in assessing the suitability of a region for growing specific crops of interest. As such, GDD units are a frequently used weather-based indicator for plant development assessment. The GDD calculation within a period of time is dependent on heat accumulation and is typically measured from the start of the growth cycle of a plant. It is usually defined relative to a base reference temperature which varies among crops based on their life cycles. The total GDD over a growing season is related to plant development. The development of plants depends on the accumulation of heat. Since cool season plants have a lower reference temperature, they accumulate GDDs faster than warm season plants. Unless plants are overly stressed by drought or pests, the total GDDs can be used to predict when a crop will reach maturity. Corn, for example, requires 1360 GDD units to mature. GDDs can be computed using climatic information for any location. That computation, along with data on soil, water, and minimum and maximum temperatures, helps suggest which crops will grow best in a given region.\\ [\baselineskip] GDD has units of temperature (i.e., $^{\circ}$C or $^{\circ}$F) and is calculated by subtracting the base temperature from the average of the daily temperatures (i.e. maximum and minimum temperatures). The equation for calculating the GDD, Eqn.(\ref{eqn:gdd}), is given as follows:
 
 \begin{equation}
 \textrm{GDD} = \left(\frac{T_{max} + T_{min}}{2}\right) - T_{base}
@@ -76,7 +76,9 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 
 \[ \left(\frac {20+10}{2}\right)-10=5 \] \par
 
+
 \subsection{ \bf Core Project Tasks Completed}
+
 \begin{enumerate}
 \item  Automated Download of daily historical temperature data for the selected cities based on station ID number
 \item  Plots showing annual cycle of min/max daily temperatures for selected Canadian cities
@@ -90,7 +92,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \includegraphics[width=3.25in]{./Plots/min_max_plot_Calgary.png}
 
 \caption{Cycle of minimum and maximum daily temperatures in 2015 for selected cities.}
-\label{gdd-cycle}
+\label{gdd_min-max}
 \end{figure}
 \end{center}
 
@@ -101,7 +103,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \begin{figure}
 \includegraphics[width=3.25in]{./Plots/GDD_Plot.png}
 \caption{2015 Annual cumulative GDD for selected cities.}
-\label{gdd-cycle}
+\label{gdd_ann-cycle}
 \end{figure}
 \end{center}
 
@@ -124,13 +126,11 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \item Exploration of some aspect of the GDD dataset using analysis and visualization tools
 \end{enumerate}
 
-
-
+Comprehensive details of project tasks, files, and GDD data plots can be found in a public github repository: https://github.com/sheykholeslam/P6950T3. 
 
 \newpage
 \section{ \bf Results}
-A summary of the results obtained for the cumulative GDD of the selected cities is presented in Tab.(\ref{gdd-results}). The results indicate that the city of Montreal recorded the highest GDD value of 1448 $^{\circ}$C among the cities selected for the year 2015. The lowest cummulative GDD value of 501 $^{\circ}$C was reported for the city of St. John's while the city of Calgary recorded a moderate cummulative GDD value of 796 $^{\circ}$C. The results suggest that among the selected cities, the city of Montreal had the warmest temperature while St. John's had the coolest temperature. Figure (\ref{gdd-cycle}) displasys a plot showing the 2015 annual cycle of minimum and maximum daily temperatures for the selected cities.
-
+A summary of the results obtained for the cumulative GDD of the selected cities is presented in Tab.(\ref{gdd-results}). Fig \ref{gdd_ann-cycle} shows the annual cumulative GDD for the three selected cities. The results indicate that the city of Montreal recorded the highest GDD value of 1448 $^{\circ}$C among the cities selected for the year 2015. The lowest cummulative GDD value of 501 $^{\circ}$C was recorded for the city of St. John's while the city of Calgary recorded a moderate cummulative GDD value of 796 $^{\circ}$C. The results suggest that among the selected cities, the city of Montreal had the warmest temperature while St. John's had the coolest temperature. Figure (\ref{gdd_min-max}) displays a plot showing the 2015 annual cycle of minimum and maximum daily temperatures for the selected cities.
 
 \begin{table}[h]
 \caption{Cumulative GDD values for selected cities in 2015} 
