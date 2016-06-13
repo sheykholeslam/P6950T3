@@ -80,8 +80,31 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \begin{enumerate}
 \item  Automated Download of daily historical temperature data for the selected cities based on station ID number
 \item  Plots showing annual cycle of min/max daily temperatures for selected Canadian cities
+
+\begin{center}
+\begin{figure}
+\includegraphics[width=3.25in]{./Plots/min_max_plot_St_Johns.png}
+
+\includegraphics[width=3.25in]{./Plots/min_max_plot_Montreal.png}
+
+\includegraphics[width=3.25in]{./Plots/min_max_plot_Calgary.png}
+
+\caption{Cycle of minimum and maximum daily temperatures in 2015 for selected cities.}
+\label{gdd-cycle}
+\end{figure}
+\end{center}
+
 \item  GDD calculation and storage for data analysis by a command line program. 
 \item  Plots showing accumulated GDD versus time for selected cities
+
+\begin{center}
+\begin{figure}
+\includegraphics[width=3.25in]{./Plots/GDD_Plot.png}
+\caption{2015 Annual cumulative GDD for selected cities.}
+\label{gdd-cycle}
+\end{figure}
+\end{center}
+
 \end{enumerate}
 
 %\subsection{Use version control (git) and collaboration tools (GitHub)}
@@ -124,28 +147,6 @@ Montreal & 1448 \\
 \end{tabular}
 \end{table}
 
-
-\begin{center}
-\begin{figure}
-\includegraphics[width=3.25in]{./Plots/min_max_plot_St_Johns.png}
-
-\includegraphics[width=3.25in]{./Plots/min_max_plot_Montreal.png}
-
-\includegraphics[width=3.25in]{./Plots/min_max_plot_Calgary.png}
-
-\caption{Cycle of minimum and maximum daily temperatures in 2015 for selected cities.}
-\label{gdd-cycle}
-\end{figure}
-\end{center}
-
-
-\begin{center}
-\begin{figure}
-\includegraphics[width=3.25in]{./Plots/GDD_Plot.png}
-\caption{2015 Annual cumulative GDD for selected cities.}
-\label{gdd-cycle}
-\end{figure}
-\end{center}
 
 \section{Conclusion}
 The daily GDD of three cities in Canada (St. John's, Montreal and Calgary) were calculated for the year 2015. The summation of the daily GDD units were used to compare heat accumulation in these cities. The results obtained indicate that the city of Montreal had the highest cumulative GDD of 1448 $^{\circ}$C for the year 2015 among the selected cities. The city of St. John's had the lowest GDD of 501 $^{\circ}$C, while Calgary had a moderate GDD of 796 $^{\circ}$C.
