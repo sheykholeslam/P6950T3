@@ -106,6 +106,7 @@ def Main():
     # add to document
     output_file("./Plots/Op5.html", title="Optional Task # 5")
     save(HBox(city_select, plot))
+	#curdoc().add_root(HBox(city_select, plot))
 
 if __name__ == '__main__':
     Main()
