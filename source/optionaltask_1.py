@@ -1,8 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
 import wget
 import numpy as np
 import pandas as pd
@@ -30,6 +25,7 @@ def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25
     plot.title = "GDD"
     colors = Blues4[0:3]
     
+    plot.circle(MaxTemp,MinTemp, alpha=0.9, color="#66ff33", fill_alpha=0.2, size=10,source=source,legend ='2015')
     plot.quad(top=Parcentile_5_Max, bottom=Parcentile_5_Min, left='left',right='right',
               source=source,color="#e67300", legend="Percentile 5-95")
     plot.quad(top=MinTemp, bottom=MaxTemp, left='left',right='right',
@@ -37,6 +33,8 @@ def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25
     plot.quad(top=Parcentile_25_Max, bottom=Parcentile_25_Min,left='left',right='right',
               source=source,color="#66ccff",legend="percentile 25-75")
     plot.line(plotDate,AverageTemp,source=source,line_color='Red', line_width=0.5, legend='AverageTemp')
+    
+    
    
     plot.border_fill_color = "whitesmoke"
     plot.xaxis.axis_label = None
@@ -80,9 +78,5 @@ plot = make_plot(source,AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75,
                  MinTemp,MaxTemp,plotDate)
 output_file("GDD.html", title="GDD Example")
 show(plot)
-
-
-# In[ ]:
-
 
 
