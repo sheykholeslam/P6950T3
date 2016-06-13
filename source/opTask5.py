@@ -11,6 +11,17 @@ from bokeh.plotting import Figure, output_file, show, save
 from scipy.signal import savgol_filter
 from extract_data_from_csv import extract_data_from_csv
 
+def extract_data_from_csv(FilePath):
+    File_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
+    Data = pd.DataFrame(File_Data)
+    Data.replace('', np.nan, inplace = True)
+    Data = Data.dropna()
+    Index = Data.keys()
+    Date, maxTemp, minTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
+    
+    return Data, Date, maxTemp, minTemp
+
+
 def DataSet(cityName):
     CurrentPath = os.getcwd()
     FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+cityName+'.csv')
