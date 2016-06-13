@@ -45,17 +45,17 @@ $(p)min_max_plot_Calgary.png : $(s)extract_data_from_csv.py $(s)min_max_plot.py 
 	mkdir -p Plots
 	python3 $(s)min_max_plot.py $(stationId) $(cityName)
 
-$(p)Op1_St.Johns.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_St.Johns.csv
+$(p)Op1_St.Johns.html : $(s)extract_data_from_csv.py $(s)opTask1.py $(d)GDD_Data_St.Johns.csv
 	mkdir -p Plots
-	python3 $(s)optionaltask_1.py $(stationId) $(cityName)
+	python3 $(s)opTask1.py $(stationId) $(cityName)
 	
-$(p)Op1_Montreal.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_Montreal.csv
+$(p)Op1_Montreal.html : $(s)extract_data_from_csv.py $(s)opTask1.py $(d)GDD_Data_Montreal.csv
 	mkdir -p Plots
-	python3 $(s)optionaltask_1.py $(stationId) $(cityName)
+	python3 $(s)opTask1.py $(stationId) $(cityName)
 	
-$(p)Op1_Calgary.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_Calgary.csv
+$(p)Op1_Calgary.html : $(s)extract_data_from_csv.py $(s)opTask1.py $(d)GDD_Data_Calgary.csv
 	mkdir -p Plots
-	python3 $(s)optionaltask_1.py $(stationId) $(cityName)
+	python3 $(s)opTask1.py $(stationId) $(cityName)
 	
 report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St.Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St.Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html
 	pdflatex $(r)report.tex
