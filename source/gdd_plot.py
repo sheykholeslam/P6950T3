@@ -44,7 +44,7 @@ def Main():
     for i in range(len(cityData)):
         gdd_plt = gdd_plot(cityData[i], args.cityName[i], args.gColor[i])
 		
-    gdd_plt.savefig("./DataFiles/GDD_Plot.png")
+    gdd_plt.savefig("./Plots/GDD_Plot.png")
 
 if __name__ == '__main__':
     Main()

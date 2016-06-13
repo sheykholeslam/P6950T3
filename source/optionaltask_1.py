@@ -74,7 +74,7 @@ def Main():
         Min_25_75, Max_25_75 =percentile_Calculation(MinTemp,MaxTemp,percent)
 
         plot = make_plot(source,AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75, MinTemp,MaxTemp,plotDate,args.cityName[i])
-        output_file("./DataFiles/Op1_"+args.cityName[i]+".html", title="Optional Task # 1 ("+args.cityName[i]+")")
+        output_file("./Plots/Op1_"+args.cityName[i]+".html", title="Optional Task # 1 ("+args.cityName[i]+")")
         save(plot)
 
 if __name__ == '__main__':

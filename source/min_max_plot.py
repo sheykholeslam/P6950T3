@@ -40,7 +40,7 @@ def Main():
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
         Data, Date, maxTemp, minTemp = extract_data_from_csv(FilePath)
         max_min_plt = min_max_plot(minTemp, maxTemp, args.cityName[i])
-        max_min_plt.savefig("./DataFiles/min_max_plot_"+str(args.cityName[i])+".png")
+        max_min_plt.savefig("./Plots/min_max_plot_"+str(args.cityName[i])+".png")
         max_min_plt.clf()
 
 if __name__ == '__main__':
