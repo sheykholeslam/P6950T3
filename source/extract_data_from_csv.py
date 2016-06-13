@@ -8,9 +8,9 @@ def extract_data_from_csv(FilePath):
     Data.replace('', np.nan, inplace = True)
     Data = Data.dropna()
     Index = Data.keys()
-    Date, minTemp, maxTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
+    Date, maxTemp, minTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
     
-    return Data, Date, minTemp, maxTemp
+    return Data, Date, maxTemp, minTemp
 
 
 

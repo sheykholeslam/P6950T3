@@ -38,7 +38,7 @@ def Main():
     for i in range(len(args.stationId)):
         CurrentPath = os.getcwd()
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
-        Data, Date, minTemp, maxTemp = extract_data_from_csv(FilePath)
+        Data, Date, maxTemp, minTemp = extract_data_from_csv(FilePath)
         max_min_plt = min_max_plot(minTemp, maxTemp, args.cityName[i])
         max_min_plt.savefig("./DataFiles/min_max_plot_"+str(args.cityName[i])+".png")
         max_min_plt.clf()

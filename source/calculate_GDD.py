@@ -2,7 +2,6 @@ import argparse
 import os
 import pandas as pd
 import numpy as np
-from extract_data_from_csv import extract_data_from_csv
 from save_data_as_csv import save_data_as_csv
 
 def checkGDD(values):

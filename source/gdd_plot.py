@@ -38,7 +38,7 @@ def Main():
     for i in range(len(args.stationId)):
         CurrentPath = os.getcwd()
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
-        Data, Date, minTemp, maxTemp = extract_data_from_csv(FilePath)
+        Data, Date, maxTemp, minTemp = extract_data_from_csv(FilePath)
         cityData.append(Data['GDD'])
     
     for i in range(len(cityData)):
