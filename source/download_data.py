@@ -19,6 +19,7 @@ def download_data(startYear, endYear, stationId, cityName):
         currentpath = os.getcwd()
         filepath= (currentpath+'/DataFiles/GDD_Data_'+cityName+'.csv')
         save_data_as_csv(Data, filepath)
+        os.remove(filename)
  
 def Main():
     parser = argparse.ArgumentParser()
