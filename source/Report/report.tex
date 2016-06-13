@@ -65,10 +65,10 @@ The data for the daily historical temperatures for the selected cities were down
 \end{itemize}
 
 \subsection{Growing Degree Day Calculation}
-Growing Degree Day (GDD) are calculated by taking the average of the daily maximum and minimum temperatures compared to a base temperature, $T_{base}$, (usually 10$^{\circ}$C). As an equation: \vspace{5mm}
+Growing Degree Day (GDD) are calculated by taking the difference between the average daily temperatures and a threshold base temperature, $T_{base}$, (usually 10$^{\circ}$C). As an equation: \vspace{5mm}
 
 {\centering
-$ GDD = (T_{max} - T_{min} /2) - T_{base} $\\ [\baselineskip]
+$\textrm{GDD} = \left(\frac{T_{max} + T_{min}}{2}\right) - T_{base}$\\ [\baselineskip]
 }
 
 Here, if the mean daily temperature is lower than the base temperature then $GDD = 0$.\vspace{5mm}
