@@ -9,7 +9,6 @@ from bokeh.models import ColumnDataSource, DataRange1d, Range1d, VBox, HBox, Sel
 from bokeh.palettes import Blues4
 from bokeh.plotting import Figure, output_file, show, save
 from scipy.signal import savgol_filter
-from extract_data_from_csv import extract_data_from_csv
 
 def extract_data_from_csv(FilePath):
     File_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
