@@ -125,18 +125,14 @@ for c in cities.keys():
 plot = make_plot(cityData)
 script, div = components(plot)
 
-/home/mohammad/workspace/P6950T3/Plots
 currentpath = os.getcwd()
-filepath= (currentpath+'/DataFiles/GDD_Data.csv')
-directory = os.path.dirname(filepath)
-if not os.path.exists(directory):
-    try:
-        os.makedirs(directory)
-    except OSError as error:
-        if error.errno != errno.EEXIST:
-            raise
-with open(filepath, 'w') as datafile:
-    Data.to_csv(filepath, sep='\t', encoding='utf-8')
- 
+scrPath= (currentpath+'/Plots/Op4_scr.script')
+f = open(scrPath, 'w')
+f.write(script)
+
+divPath= (currentpath+'/Plots/Op4_div.div')
+f = open(divPath, 'w')
+f.write(div)
+
 # add to document
 #curdoc().add_root(plot)
