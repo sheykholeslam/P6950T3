@@ -58,19 +58,32 @@ def update_plot(attrname, old, new):
 
 
 def Main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
-    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
+#    parser = argparse.ArgumentParser()
+#    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
+#    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
 	
-    args = parser.parse_args()
+#    args = parser.parse_args()
+	
+    stationId = [50089, 51157, 50430]
+    cityName = ['St_Johns', 'Montreal','Calgary']
 	
     cityData = {}
+	
+    #cities = { 
+    #    args.cityName[0] : {'ID':args.stationId[0]},
+    #    args.cityName[1] : {'ID':args.stationId[1]},
+    #    args.cityName[2] : {'ID':args.stationId[2]}
+    #}
+	
     cities = { 
-        args.cityName[0] : {'ID':args.stationId[0]},
-        args.cityName[1] : {'ID':args.stationId[1]},
-        args.cityName[2] : {'ID':args.stationId[2]}
+        cityName[0] : {'ID':stationId[0]},
+        cityName[1] : {'ID':stationId[1]},
+        cityName[2] : {'ID':stationId[2]}
     }
-    city = args.cityName[0]
+	
+    #city = args.cityName[0]
+	
+    city = cityName[0]
     city_select = Select(value=city, title='City:', options=list(cities.keys()))
     
     for c in cities.keys():
@@ -79,10 +92,10 @@ def Main():
     source = cityData[city]
     plot = make_plot(source, city)
     city_select.on_change('value', update_plot)
-
+	
     # add to document
     output_file("./Plots/Op5.html", title="Optional Task # 5")
-    save(plot)
+    save(HBox(city_select, plot))
 
 if __name__ == '__main__':
     Main()

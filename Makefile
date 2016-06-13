@@ -67,7 +67,8 @@ $(p)Op4.html : $(s)extract_data_from_csv.py $(s)opTask4.py $(d)GDD_Data_Calgary.
 	
 $(p)Op5.html : $(s)extract_data_from_csv.py $(s)opTask5.py $(d)GDD_Data_Calgary.csv $(d)GDD_Data_Montreal.csv $(d)GDD_Data_St_Johns.csv
 	mkdir -p Plots
-	python3 $(s)opTask5.py $(stationId) $(cityName)
+	#bokeh serve $(s)opTask5.py
+	python3 $(s)opTask5.py
 	
 report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St_Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St_Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html $(p)Op3.png $(p)Op4.html $(p)Op5.html 
 	pdflatex $(r)report.tex
