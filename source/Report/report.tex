@@ -75,39 +75,82 @@ $\textrm{GDD} = \left(\frac{T_{max} + T_{min}}{2}\right) - T_{base}$\\ [\baselin
 
 \[ \left(\frac {20+10}{2}\right)-10=5 \] \par
 
+\section{ \bf Results}
 
-\noindent
-\section{ \bf Software Architecture}
-\subsection{Tools Used}
-\subsubsection{Programming Language}
-\subsubsection{Version Control}
-\subsection{Components}
-\subsubsection{Makefile}
-\subsubsection{Plots}
-\subsubsection{Report}
-\subsubsection{Presentation}
-
-\section{ \bf Core Tasks}
-\subsection{Download daily historical temperature data for several cities}
-\subsection{Create a plot showing an annual cycle of min/max daily temperatures. Do this for at least three selected Canadian cities.}
-\subsection{A command line program that takes arguments.}
-This program should calculate the GDD. Internally your program should handle the command line arguments and implement the actual calculation as one or more functions. The output from this program needs to be persistently stored. Your choice on how to implement this storage. Later steps in your work flow must use the results of these calculations.
-\subsection{Create plots showing accumulated GDD vs time for selected cities}
-
-\subsection{Use version control (git) and collaboration tools (GitHub)}
-\subsection{Create a LaTeX report summarizing the results of your project}
-\subsection{Create a web based presentation for your results}
-\subsection{Implement your entire workflow as a Makefile. Ensure that your entire project is reproducible}
-\subsection{Create a test-suite (using the Python package nose) to demonstrate your GDD calculation works as intended}
-\subsection{Project should include adequate documentation both with your source code and Readme.md file}
+\begin{table}[h]
+\caption{Cumulative GDD values for selected cities in 2015} 
+\label{gdd-results}
+\centering
+\begin{tabular}{l c}
+\hline
+\textbf{Cities} & \textbf{Cum. GDD} \textbf($^{\circ}$C) \\
+\hline
+St. John's & 501 \\
+Calgary & 796 \\
+Montreal & 1448 \\
+\hline
+\end{tabular}
+\end{table}
 
 
-\section{ \bf Optional Tasks}
-\subsection{Create an plot showing GDD like the example below for selected Canadian cities}
-\subsection{Create a map showing effective growing degrees over both all of Canada and only for the island of Newfoundland.}
-\subsection{Explore how GDD calculation depends on the choice of $T_{base}$. show your results for either selected cities or create maps}
-\subsection{Create standalone bokeh plots embeded in your HTML presentation}
-\subsection{Create a bokeh server plot so that you can look at the accumulated GDD for any city in Canada.}
+\begin{center}
+\begin{figure}
+\includegraphics[width=3.25in]{./Plots/min_max_plot_St.Johns.png}\\
+
+\includegraphics[width=3.25in]{./Plots/min_max_plot_Montreal.png}\\
+
+\includegraphics[width=3.25in]{./Plots/min_max_plot_Calgary.png}\\
+
+\caption{Cycle of minimum and maximum daily temperatures in 2015 for selected cities.}
+\label{gdd-cycle}
+\end{figure}
+\end{center}
+
+
+\begin{center}
+\begin{figure}
+\includegraphics[width=3.25in]{./Plots/GDD_Plot.png}
+\caption{2015 Annual cumulative GDD for selected cities.}
+\label{gdd-cycle}
+\end{figure}
+\end{center}
+
+
+\section{Conclusion}
+The daily GDD of three cities in Canada (St. John's, Montreal and Calgary) were calculated for the year 2015. The summation of the daily GDD units were used to compare heat accumulation in these cities. The results obtained indicate that the city of Montreal had the highest cumulative GDD of 1448 $^{\circ}$C for the year 2015 among the selected cities. The city of St. John's had the lowest GDD of 501 $^{\circ}$C, while Calgary had a moderate GDD of 796 $^{\circ}$C.
+
+
+%\section{ \bf Software Architecture}
+%\subsection{Tools Used}
+%\subsubsection{Programming Language}
+%\subsubsection{Version Control}
+%\subsection{Components}
+%\subsubsection{Makefile}
+%\subsubsection{Plots}
+%\subsubsection{Report}
+%\subsubsection{Presentation}
+
+%\section{ \bf Core Tasks}
+%\subsection{Download daily historical temperature data for several cities}
+%\subsection{Create a plot showing an annual cycle of min/max daily temperatures. Do this for at least three selected Canadian cities.}
+%\subsection{A command line program that takes arguments.}
+%This program should calculate the GDD. Internally your program should handle the command line arguments and implement the actual calculation as one or more functions. The output from this program needs to be persistently stored. Your choice on how to implement this storage. Later steps in your work flow must use the results of these calculations.
+%\subsection{Create plots showing accumulated GDD vs time for selected cities}
+
+%\subsection{Use version control (git) and collaboration tools (GitHub)}
+%\subsection{Create a LaTeX report summarizing the results of your project}
+%\subsection{Create a web based presentation for your results}
+%\subsection{Implement your entire workflow as a Makefile. Ensure that your entire project is reproducible}
+%\subsection{Create a test-suite (using the Python package nose) to demonstrate your GDD calculation works as intended}
+%\subsection{Project should include adequate documentation both with your source code and Readme.md file}
+
+
+%\section{ \bf Optional Tasks}
+%\subsection{Create an plot showing GDD like the example below for selected Canadian cities}
+%\subsection{Create a map showing effective growing degrees over both all of Canada and only for the island of Newfoundland.}
+%\subsection{Explore how GDD calculation depends on the choice of $T_{base}$. show your results for either selected cities or create maps}
+%\subsection{Create standalone bokeh plots embeded in your HTML presentation}
+%\subsection{Create a bokeh server plot so that you can look at the accumulated GDD for any city in Canada.}
 
 
 
