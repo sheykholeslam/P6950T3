@@ -40,10 +40,16 @@ $(d)min_max_plot_Montreal.png : $(s)extract_data_from_csv.py $(s)min_max_plot.py
 $(d)min_max_plot_Calgary.png : $(s)extract_data_from_csv.py $(s)min_max_plot.py $(d)GDD_Data_Calgary.csv
 	python3 $(s)min_max_plot.py $(stationId) $(cityName)
 
-$(d)Op1.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_St.Johns.csv $(d)GDD_Data_Montreal.csv $(d)GDD_Data_Calgary.csv
-	python3 $(s)optionaltask_1.py
+$(d)Op1_St.Johns.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_St.Johns.csv
+	python3 $(s)optionaltask_1.py $(stationId) $(cityName)
 	
-report.pdf : $(r)report.tex $(d)GDD_Plot.png $(d)min_max_plot_St.Johns.png $(d)min_max_plot_Montreal.png $(d)min_max_plot_Calgary.png $(d)Op1.html
+$(d)Op1_Montreal.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_Montreal.csv
+	python3 $(s)optionaltask_1.py $(stationId) $(cityName)
+	
+$(d)Op1_Calgary.html : $(s)extract_data_from_csv.py $(s)optionaltask_1.py $(d)GDD_Data_Calgary.csv
+	python3 $(s)optionaltask_1.py $(stationId) $(cityName)
+	
+report.pdf : $(r)report.tex $(d)GDD_Plot.png $(d)min_max_plot_St.Johns.png $(d)min_max_plot_Montreal.png $(d)min_max_plot_Calgary.png $(d)Op1_St.Johns.html $(d)Op1_Montreal.html $(d)Op1_Calgary.html
 	pdflatex $(r)report.tex
 	pdflatex $(r)report.tex
 	
