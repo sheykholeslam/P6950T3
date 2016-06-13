@@ -56,8 +56,12 @@ $(p)Op1_Montreal.html : $(s)extract_data_from_csv.py $(s)opTask1.py $(d)GDD_Data
 $(p)Op1_Calgary.html : $(s)extract_data_from_csv.py $(s)opTask1.py $(d)GDD_Data_Calgary.csv
 	mkdir -p Plots
 	python3 $(s)opTask1.py $(stationId) $(cityName)
+
+$(p)Op4.html : $(s)extract_data_from_csv.py $(s)opTask4.py $(d)GDD_Data_Calgary.csv $(d)GDD_Data_Montreal.csv $(d)GDD_Data_St.Johns.csv
+	mkdir -p Plots
+	python3 $(s)opTask4.py $(stationId) $(cityName)
 	
-report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St.Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St.Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html
+report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St.Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St.Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html $(p)Op4.html
 	pdflatex $(r)report.tex
 	pdflatex $(r)report.tex
 	
