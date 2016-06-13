@@ -21,6 +21,7 @@ def percentile_Calculation(MinTemp,MaxTemp,percent):
 
 
 def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25_Min,Parcentile_25_Max,MinTemp,MaxTemp,plotDate):
+    
     plot = Figure(x_axis_type="datetime", plot_width=1000, tools="", toolbar_location=None)
     plot.title = "GDD"
     colors = Blues4[0:3]
@@ -44,7 +45,7 @@ def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25
     plot.axis.axis_label_text_font_style = "bold"
     plot.x_range = DataRange1d(range_padding=0.0, bounds=None)
     plot.grid.grid_line_alpha = 0.3
-    plot.grid[0].ticker.desired_num_ticks = 12
+    plot.grid[0].ticker.desired_num_ticks = 20
 
     return plot
 
@@ -52,10 +53,11 @@ def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25
 CurrentPath = os.getcwd()
 FilePath= (CurrentPath+'/DataFiles/GDD_Data.csv')
 Hourly_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = "\t" ,skiprows=0)
-Data = pd.DataFrame(Hourly_Data, columns = ['Date/Time','Max Temp (Â°C)', 'Min Temp (Â°C)'])
+Data = pd.DataFrame(Hourly_Data)
 Data.replace('', np.nan, inplace = True)
 Data = Data.dropna()
-Date,MinTemp, MaxTemp = np.array(Data['Date/Time']),np.array(Data['Min Temp (Â°C)']), np.array(Data['Max Temp (Â°C)'])
+Index = Data.keys()
+Date, MaxTemp, MinTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
 Data['date'] = pd.to_datetime(Date)
 Data['left'] = Data.date - pd.DateOffset(days=0.5)
 Data['right'] = Data.date + pd.DateOffset(days=0.5)
@@ -78,5 +80,3 @@ plot = make_plot(source,AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75,
                  MinTemp,MaxTemp,plotDate)
 output_file("GDD.html", title="GDD Example")
 show(plot)
-
-
