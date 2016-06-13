@@ -71,17 +71,10 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 $\textrm{GDD} = \left(\frac{T_{max} + T_{min}}{2}\right) - T_{base}$\\ [\baselineskip]
 }
 
-\noindent If the daily mean temperature is lower than the base temperature then $\textrm{GDD} = 0$.In other words, any temperature below $T_{base}$ is set to $T_{base}$ before calculating the average.\vspace{5mm}
+\noindent If the daily mean temperature is lower than the base temperature then $\textrm{GDD} = 0$.In other words, any temperature below $T_{base}$ is set to $T_{base}$ before calculating the average. GDDs are typically measured from the start of spring. A sample GDD calculation for a day in spring with a high of 20$^{\circ}$C and a low of 10$^{\circ}$C is as follows:\vspace{5mm}
 
-GDDs are typically measured from the winter low. Any temperature below $T_{base}$ is set to $T_{base}$ before calculating the average. Likewise, the maximum temperature is usually capped at 30$^{\circ}$C because most plants and insects do not grow any faster above that temperature. However, some warm temperate and tropical plants do have significant requirements for days above 30$^{\circ}$C to mature fruit or seeds.\vspace{5mm}
+\[ \frac {20+10}{2}-10=5 \] \par
 
-For example, a day with a high of 23$^{\circ}$C and a low of 12$^{\circ}$C (and a base of 10$^{\circ}$C) would contribute 7.5 GDDs.\vspace{5mm}
-
-\[ \frac {23+12}{2}-10=7.5 \] \par
-
-A day with a high of 13$^{\circ}$C and a low of 10$^{\circ}$C (and a base of 10$^{\circ}$C) would contribute 1.5 GDDs.\vspace{5mm}
-
-\[ \frac {13+10}{2}-10=1.5 \] \par
 
 \noindent
 \section{ \bf Software Architecture}
