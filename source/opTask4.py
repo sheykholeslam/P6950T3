@@ -4,6 +4,8 @@ import pandas as pd
 import wget
 import os
 
+from bokeh.plotting import figure
+from bokeh.embed import components
 from bokeh.io import curdoc
 from bokeh.models import ColumnDataSource, DataRange1d, Range1d, VBox, HBox, Select, HoverTool, BoxSelectTool
 from bokeh.palettes import Spectral11
@@ -121,6 +123,20 @@ for c in cities.keys():
 
     
 plot = make_plot(cityData)
+script, div = components(plot)
 
+/home/mohammad/workspace/P6950T3/Plots
+currentpath = os.getcwd()
+filepath= (currentpath+'/DataFiles/GDD_Data.csv')
+directory = os.path.dirname(filepath)
+if not os.path.exists(directory):
+    try:
+        os.makedirs(directory)
+    except OSError as error:
+        if error.errno != errno.EEXIST:
+            raise
+with open(filepath, 'w') as datafile:
+    Data.to_csv(filepath, sep='\t', encoding='utf-8')
+ 
 # add to document
-curdoc().add_root(plot)
+#curdoc().add_root(plot)
