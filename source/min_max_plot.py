@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import argparse
+import os
 from extract_data_from_csv import extract_data_from_csv
 
 def min_max_plot(A, B, cityName):
@@ -35,7 +36,9 @@ def Main():
     args = parser.parse_args()
 	
     for i in range(len(args.stationId)):
-        Data, Date, minTemp, maxTemp = extract_data_from_csv(args.cityName[i])
+        CurrentPath = os.getcwd()
+        FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
+        Data, Date, minTemp, maxTemp = extract_data_from_csv(FilePath)
         max_min_plt = min_max_plot(minTemp, maxTemp, args.cityName[i])
         max_min_plt.savefig("./DataFiles/min_max_plot_"+str(args.cityName[i])+".png")
         max_min_plt.clf()

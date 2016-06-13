@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import argparse
+import os
 from extract_data_from_csv import extract_data_from_csv
 
 def gdd_plot(gdd, cityName, gColor):
@@ -35,7 +36,9 @@ def Main():
 	
     cityData = []
     for i in range(len(args.stationId)):
-        Data, Date, minTemp, maxTemp = extract_data_from_csv(args.cityName[i])
+        CurrentPath = os.getcwd()
+        FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
+        Data, Date, minTemp, maxTemp = extract_data_from_csv(FilePath)
         cityData.append(Data['GDD'])
     
     for i in range(len(cityData)):
