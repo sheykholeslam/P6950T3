@@ -14,6 +14,21 @@ from bokeh.io import output_file, show, vform
 from bokeh.palettes import Blues4
 import csv
 
+# Function Get_Dataset to optimize the code
+def get_dataset(src):
+    Data = pd.DataFrame(src)
+    Data.replace('', np.nan, inplace = True)
+    Data = Data.dropna()
+    Index = Data.keys()
+    Date, MaxTemp, MinTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
+    Data['date'] = pd.to_datetime(Date)
+    Data['left'] = Data.date - pd.DateOffset(days=0.5)
+    Data['right'] = Data.date + pd.DateOffset(days=0.5)
+    PlotDate =[]
+    plotDate = Data['right']
+    Data = Data.set_index(['date'])
+    Data.sort_index(inplace=True)
+    return ColumnDataSource(data=Data)
 
 
 def percentile_Calculation(MinTemp,MaxTemp,percent):
@@ -101,19 +116,7 @@ city_select = Select(value=city, title='City', options=sorted(cities.keys()))
 CurrentPath = os.getcwd()
 FilePath= (CurrentPath+'/Downloads/Option1.csv')
 Hourly_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = "\t" ,skiprows=0)
-Data = pd.DataFrame(Hourly_Data)
-Data.replace('', np.nan, inplace = True)
-Data = Data.dropna()
-Index = Data.keys()
-Date, MaxTemp, MinTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
-Data['date'] = pd.to_datetime(Date)
-Data['left'] = Data.date - pd.DateOffset(days=0.5)
-Data['right'] = Data.date + pd.DateOffset(days=0.5)
-PlotDate =[]
-plotDate = Data['right']
-Data = Data.set_index(['date'])
-Data.sort_index(inplace=True)
-source = ColumnDataSource(data=Data)
+
 
 MinTempOrigin1 = []
 MaxTempOrigin2 = []
@@ -133,7 +136,7 @@ Min_5_95, Max_5_95 = percentile_Calculation(MinTemp,MaxTemp,percent)
 
 percent = 25
 Min_25_75, Max_25_75 = percentile_Calculation(MinTempOrigin,MaxTempOrigin,percent)
-plot = make_plot(source,AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75,MinTemp,MaxTemp,plotDate)
+plot = make_plot(get_dataset(Hourly_Data),AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75,MinTemp,MaxTemp,plotDate)
 output_file("GDD.html", title="GDD Example")
 
 show(vform(city_select, plot))
