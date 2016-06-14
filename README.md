@@ -23,16 +23,24 @@ Requirements:
 
 Program Execute:
 ----------------
-##### Example:
+
+##### Clone GitHub Repository:
 
 ```bash
-# Calling the Makefile
+# Make a clone of the repository in a local directory
+$ git clone https://github.com/sheykholeslam/P6950T3.git
+```
+
+##### Run:
+
+```bash
+# To call the Makefile and execute all.
 $ make
 
-# Clean the complied and data files
+# To removing all the downloaded data and complied files.
 $ make clean
 
-# Calling by file name
+# To generate files by file name (Ex. report.pdf). 
 $ make report.pdf
 ```
 
