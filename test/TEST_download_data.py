@@ -13,7 +13,7 @@ import argparse
 import os
 
 import sys
-sys.path.append('/home/mehrzad/workspace/P6950T3/source')
+sys.path.append('./source')
 from save_data_as_csv import save_data_as_csv
 from download_data import download_data
 
