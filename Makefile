@@ -3,6 +3,7 @@ s = ./source/
 r = ./source/Report/
 d = ./DataFiles/
 p = ./Plots/
+t = ./test/
 
 # Input variables and their values
 startYear = 2015
@@ -13,7 +14,7 @@ stationId = -st 50089 51157 50430
 cityName = -ct 'St_Johns' 'Montreal' 'Calgary'
 # Define the seperate plot line color for each city. 
 gColor = -gc 'blue' 'red' 'green'
-
+PY=python3
 
 all : report.pdf
 
@@ -78,6 +79,8 @@ clean :
 	rm -rf *.csv $(s)__pycache__ DataFiles Plots
 	rm -f report.log report.aux report.pdf report.toc
 
+test :
+	$(PY) test/*.py
 help:
 	@echo "Please make sure you have installed pdflatex program.
 	@echo "# Calling the Makefile"
