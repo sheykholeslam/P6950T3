@@ -4,6 +4,7 @@ import argparse
 import os
 from extract_data_from_csv import extract_data_from_csv
 
+# Plotting Min Max figure for a given city
 def min_max_plot(A, B, cityName):
     plt.subplot(1,1,1)
     X = np.linspace(1, 365, 365, endpoint=True)
@@ -29,6 +30,7 @@ def min_max_plot(A, B, cityName):
 
 	
 def Main():
+    # Taking the arguments from command line.
     parser = argparse.ArgumentParser()
     parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
     parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
@@ -36,10 +38,12 @@ def Main():
     args = parser.parse_args()
 	
     for i in range(len(args.stationId)):
+    	# Reading the data from downloaded .csv files. 
         CurrentPath = os.getcwd()
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
         Data, Date, maxTemp, minTemp = extract_data_from_csv(FilePath)
         max_min_plt = min_max_plot(minTemp, maxTemp, args.cityName[i])
+        
         max_min_plt.savefig("./Plots/min_max_plot_"+str(args.cityName[i])+".png")
         max_min_plt.clf()
 
