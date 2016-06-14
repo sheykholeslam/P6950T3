@@ -95,9 +95,10 @@ def Main():
     fs = open("./Plots/Op4.scr", 'w')
     fs.write(scr)
     fd = open("./Plots/Op4.div", 'w')	
-    fd.write(div) 
+    fd.write(div)
+    print(div) 
 	
-    if __name__ == '__main__':
-        Main()
+#    if __name__ == '__main__':
+Main()
 
 
