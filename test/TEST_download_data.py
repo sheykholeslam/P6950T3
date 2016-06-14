@@ -13,7 +13,7 @@ import argparse
 import os
 
 import sys
-sys.path.append('/home/mehrzad/workspace/P6950T3/source')
+sys.path.append('./source')
 from save_data_as_csv import save_data_as_csv
 from download_data import download_data
 
@@ -28,10 +28,10 @@ def test_download_data():
     try:
         currentpath = os.getcwd()
         File_Data = pd.read_csv(currentpath+'/DataFiles/GDD_Data_st.Johns.csv')
-        print ("\n File is downloaded")
+        print ("\n File "+cityName+" is downloaded very well")
         #Data = pd.DataFrame(File_Data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
     except:
-        raise ValueError("Jupiter is not where it should be!")
+        raise ValueError("Downloading file is failed!!!")
 
 test_download_data()
 
