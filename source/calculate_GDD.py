@@ -21,7 +21,7 @@ def calculate_GDD(Data, baseTemp):
     return Data
 	
 def Main():
-# Taking the arguments from command line. 
+    # Taking the arguments from command line. 
     parser = argparse.ArgumentParser()
     parser.add_argument("baseTemp", help="Please set base temperature.", type=int)
     parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
@@ -41,7 +41,7 @@ def Main():
 	# Calling calculate_GDD function to calculate GDD
         GDD_Data = calculate_GDD(Data, args.baseTemp)
         
-        # Saving back the updated DataFrame to .csv. 
+        # Saving back the updated DataFrame to .csv file. 
         save_data_as_csv(GDD_Data, FilePath)
 		
 if __name__ == '__main__':
