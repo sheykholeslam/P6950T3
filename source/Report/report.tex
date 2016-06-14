@@ -5,6 +5,7 @@
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{caption}
 
 \begin{document}
 
@@ -82,7 +83,6 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \begin{enumerate}
 \item  Automated download of daily historical temperature data for the selected cities based on station ID number
 \item  Plots showing annual cycle of min/max daily temperatures for selected Canadian cities (Fig. \ref{gdd_min-max})
-
 \begin{center}
 \begin{figure}[!htb]
 \includegraphics[width=3.25in]{./Plots/min_max_plot_St_Johns.png}
@@ -98,9 +98,8 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 
 \item  GDD calculation and storage for data analysis by a command line program
 \item  Plots showing accumulated GDD versus time for selected cities (Fig. \ref{gdd_ann-cycle})
-
 \begin{center}
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=3.25in]{./Plots/GDD_Plot.png}
 \caption{2015 Annual cumulative GDD for selected cities.}
 \label{gdd_ann-cycle}
@@ -120,7 +119,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \begin{enumerate}
 \item A bokeh plot showing GDD for selected Canadian cities considered (Fig. \ref{bokeh_min-max})
 \begin{center}
-\begin{figure}
+\begin{figure}[!htb] 
 \includegraphics[width=3.25in]{./source/Report/op-task-1_st_johns.png}\\
 
 \includegraphics[width=3.25in]{./source/Report/op-task-1_montreal.png}\\
@@ -134,7 +133,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 %\subsection{Create a map showing effective growing degrees over both all of Canada and only for the island of Newfoundland.}
 \item Exploration of how GDD calculation depends on the choice of $T_{base}$ (Fig. \ref{gdd_diff-tbase})
 \begin{center}
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=3.25in]{./source/Report/op3.png}
 \caption{Variation of GDD of St. JOhns in 2015 for different $T_{base}$ values}
 \label{gdd_diff-tbase}
@@ -143,7 +142,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 
 \item A standalone bokeh plots embeded in our HTML presentation for interactive selection of data by interested users (Fig. \ref{gdd_interactive})
 \begin{center}
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=3.25in]{./source/Report/op-task_4.png}
 \caption{Interactive plot of 2015 cumulative GDD for selected cities}
 \label{gdd_interactive}
@@ -153,7 +152,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \item A bokeh server plot for visualization of accumulated GDD for any city in Canada (Fig. \ref{bokeh-server-plot_sj})
 
 \begin{center}
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=3.25in]{./source/Report/op-task_5.png}
 \caption{Bokeh server plot of 2015 cumulative GDD for St. John's}
 \label{bokeh-server-plot_sj}
@@ -167,12 +166,12 @@ Comprehensive details of project tasks, files, and GDD data plots can be found i
 
 
 \section{ \bf Results}
-A summary of the results obtained for the cumulative GDD of the selected cities is presented in Tab. \ref{gdd-results}. Fig. \ref{gdd_ann-cycle} shows the annual cumulative GDD for the three selected cities. The results indicate that the city of Montreal recorded the highest GDD value of 1448 $^{\circ}$C among the cities selected for the year 2015. The lowest cummulative GDD value of 501 $^{\circ}$C was recorded for the city of St. John's while the city of Calgary recorded a moderate cummulative GDD value of 796 $^{\circ}$C. The results suggest that among the selected cities, the city of Montreal had the warmest temperature while St. John's had the coolest temperature. Figure (\ref{gdd_min-max}) displays a plot showing the 2015 annual cycle of minimum and maximum daily temperatures for the selected cities.
+A summary of the results obtained for the cumulative GDD of the selected cities is presented in Tab. \ref{tbl:gdd-results}. Fig. \ref{gdd_ann-cycle} shows the annual cumulative GDD for the three selected cities. The results indicate that the city of Montreal recorded the highest GDD value of 1448 $^{\circ}$C among the cities selected for the year 2015. The lowest cummulative GDD value of 501 $^{\circ}$C was recorded for the city of St. John's while the city of Calgary recorded a moderate cummulative GDD value of 796 $^{\circ}$C. The results suggest that among the selected cities, the city of Montreal had the warmest temperature while St. John's had the coolest temperature. Figure (\ref{gdd_min-max}) displays a plot showing the 2015 annual cycle of minimum and maximum daily temperatures for the selected cities.
 
 \begin{table}[h]
 \caption{Cumulative GDD values for selected cities in 2015} 
-\label{gdd-results}
-\centering
+\label{tbl:gdd-results}
+\centering 
 \begin{tabular}{l c}
 \hline
 \textbf{Cities} & \textbf{Cum. GDD} \textbf($^{\circ}$C) \\
@@ -193,6 +192,9 @@ The daily GDD of three cities in Canada (St. John's, Montreal and Calgary) were 
 \begin{enumerate}
 \item Gordon, R.; Bootsma, A. Analyses of growing degree-days for agriculture in Atlantic Canada \textbf{1993} \textit{Clim. Res.} 3: 169--179.
 \item \href{url}{$https://en.wikipedia.org/wiki/Growing_degree-day$}
+\item \href{url}{$http://www.farmwest.com/node/936$}
+\item \href{url}{$http://wine.wsu.edu/research-extension/weather/growing-degree-days/$}
+\item \href{url}{$http://whyfiles.org/2010/what-are-growing-degree-days/$}
 \end{enumerate}
 
 %\bibliography{./source/Report/references.bib}
