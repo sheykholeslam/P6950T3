@@ -13,8 +13,6 @@ from extract_data_from_csv import extract_data_from_csv
 from bokeh.plotting import figure
 from bokeh.embed import components
 
-
-script, div = components(plot)
 # Reading data from .csv files and manipulating based on plot requirements 
 def DataSet(cityName):
     CurrentPath = os.getcwd()
@@ -93,6 +91,11 @@ def Main():
     plot = make_plot(cityData)
     output_file("./Plots/Op4.html", title="Optional Task # 4")
     save(plot)
-
-if __name__ == '__main__':
+	scr, div = components(plot)
+    fs = open("./Plots/Op4.scr", 'w')
+	fs.write(scr)
+	fd = open("./Plots/Op4.div", 'w')	
+	fd.write(div)
+	
+	if __name__ == '__main__':
     Main()
