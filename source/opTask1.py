@@ -13,6 +13,7 @@ from bokeh.embed import file_html
 import argparse
 from extract_data_from_csv import extract_data_from_csv
 
+# Calculating value after subtracting the percentile
 def percentile_Calculation(MinTemp,MaxTemp,percent):
    
     percentile = percent/100
@@ -41,19 +42,17 @@ def percentile_Calculation(MinTemp,MaxTemp,percent):
     
     return MinTemp,MaxTemp
 
-
+# Making Bokeh plot based on 5-95% and 25-75% percentile values for a given city
 def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25_Min,Parcentile_25_Max,MinTemp,MaxTemp,plotDate):
     
     plot = Figure(x_axis_type="datetime", plot_width=1000, tools="", toolbar_location=None)
     plot.title = "GDD"
     colors = Blues4[0:3]
-    
-    
+   
     plot.circle(MaxTemp,MinTemp, alpha=0.9, color="#66ff33", fill_alpha=0.2, size=10,source=source,legend ='2015')
     plot.quad(top=Parcentile_5_Max, bottom=Parcentile_5_Min, left='left',right='right',source=source,color="#000000", legend="Percentile 5-95")
     plot.quad(top=Parcentile_25_Max, bottom=Parcentile_25_Min,left='left',right='right', source=source,color="#66ccff",legend="percentile 25-75")
     plot.line(plotDate,AverageTemp,source=source,line_color='Red', line_width=0.5, legend='AverageTemp')
-    
    
     plot.border_fill_color = "whitesmoke"
     plot.xaxis.axis_label = None
@@ -69,12 +68,17 @@ def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25
 
 
 def Main():
+    # Taking the arguments from command line. 
     parser = argparse.ArgumentParser()
     parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
     parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
+    
     args = parser.parse_args()
+    
     CurrentPath = os.getcwd()
+    
     for i in range(len(args.stationId)):
+    	# Reading the data from downloaded .csv files. 
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
         Data, Date, MaxTemp, MinTemp = extract_data_from_csv(FilePath)
         Data['date'] = pd.to_datetime(Date)
