@@ -10,7 +10,11 @@ from bokeh.palettes import Spectral11
 from bokeh.plotting import Figure, output_file, show, save
 from scipy.signal import savgol_filter
 from extract_data_from_csv import extract_data_from_csv
+from bokeh.plotting import figure
+from bokeh.embed import components
 
+
+script, div = components(plot)
 # Reading data from .csv files and manipulating based on plot requirements 
 def DataSet(cityName):
     CurrentPath = os.getcwd()
