@@ -13,6 +13,27 @@ from bokeh.embed import file_html
 import argparse
 from extract_data_from_csv import extract_data_from_csv
 
+def add_columns(new):
+    CurrentPath = os.getcwd()
+    f= open(CurrentPath+'/Downloads/Option1.csv')
+    data = [item for item in csv.reader(f)]
+    f.close()
+    
+    new_column = ["Col 1"] 
+    new_data = [new]
+     
+    for i, item in enumerate(data):
+        try:
+            item.append(new_column[i])
+        except IndexError, e:
+            if (i>=0 and i<=364):
+                item.append(new_column[i])
+        new_data.append(item)
+     
+    f = open(CurrentPath +'/Downloads/Option2.csv', 'w')
+    csv.writer(f).writerows(new_data)
+    f.close()
+ 
 def percentile_Calculation(MinTemp,MaxTemp,percent):
    
     percentile = percent/100
