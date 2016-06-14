@@ -64,11 +64,16 @@ Contents:
 <th colspan="2" align=left>Source Files</th>
 <tr><td>calculate_GDD.py</td><td>Function to calculate GDD from a given data.</td></tr>
 <tr><td>download_data.py</td><td>Download the historical weather data from web.</td></tr>
+<tr><td>save_data_as_csv.py</td><td>Save the downloaded/modified data into CSV format.</td></tr>
 <tr><td>extract_data_from_csv.py</td><td>Extract the data from downloaded CSV files.</td></tr>
 <tr><td>gdd_plot.py</td><td>Plot the cumulative GDD for multiple cities.</td></tr>
 <tr><td>min_max_plot.py</td><td>Min-Max temperature plot for different cities.</td></tr>
+<tr><td>opTask1.py</td><td>Optional Task # 1.</td></tr>
+<tr><td>opTask3.py</td><td>Optional Task # 3.</td></tr>
+<tr><td>opTask4.py</td><td>Optional Task # 4.</td></tr>
+<tr><td>opTask5.py</td><td>Optional Task # 5.</td></tr>
 <tr><td>report.tex</td><td>LaTeX source file for the report.</td></tr>
-<tr><td>presentation.html</td><td>Web based presentation source code.</td></tr>
+<tr><td>gh-pages/index.html</td><td>Web based presentation source code.</td></tr>
 <th colspan="2" align=left>Data Files</th>
 <tr><td>report.pdf</td><td>Function to calculate GDD from a given data.</td></tr>
 <tr><td>GDD_Data.csv</td><td>Downloaded CSV data file.</td></tr>
