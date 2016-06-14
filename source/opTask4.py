@@ -11,6 +11,7 @@ from bokeh.plotting import Figure, output_file, show, save
 from scipy.signal import savgol_filter
 from extract_data_from_csv import extract_data_from_csv
 
+# Reading data from .csv files and manipulating based on plot requirements 
 def DataSet(cityName):
     CurrentPath = os.getcwd()
     FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+cityName+'.csv')
@@ -34,7 +35,7 @@ def DataSet(cityName):
 
 
 def make_plot(cityData):
-    
+    # Hover option to make the plot interactive
     hover = HoverTool(
         tooltips=[
             ("GDD", "$y"),
@@ -61,13 +62,14 @@ def make_plot(cityData):
 
     return plot
 
-# set up callbacks
+# Set up callbacks for hover interaction
 def update_plot(attrname, old, new):
     src = DataSet(c)
     source.data.update(src.data)
     plot.title = city_select.value
 
 def Main():
+    # Taking the arguments from command line. 
     parser = argparse.ArgumentParser()
     parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
     parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
