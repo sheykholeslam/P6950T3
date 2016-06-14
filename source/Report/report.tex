@@ -34,7 +34,7 @@ Submitted by \\[\baselineskip]
   \section*{Abstract}
 }
 
-{\itshape In this report, we calculated the growing degree days (GDD) based on different Canadian city's weather history. Three major cities were considered, namely: St. John’s, Calgary and Montreal. The data collected was for the year 2015. The calculated GDD varies among the three cities considered. The city of Montreal had the largest GDD of 1448 $^{\circ}$C for the year 2015 while St. John's had the least GDD of 501 $^{\circ}$C.\\
+{\itshape In this report, we calculated the growing degree days (GDD) based on different Canadian city's weather history. Three major cities were considered, namely: St. John’s, Calgary, and Montreal. The data collected was for the year 2015. The calculated GDD varies among the three cities considered. The city of Montreal had the largest GDD of 1448 $^{\circ}$C among the cities compared for GDD values recorded in that year. St. John's recorded the lowest GDD value of 501 $^{\circ}$C while the city of Calgary recorded a moderate GDD value of 796 $^{\circ}$C.\\
 }
 
 %\newpage
@@ -49,7 +49,7 @@ Growing degree days (GDD) is simply a predictive tool used in horticulture for a
 \label{eqn:gdd}
 \end{equation}
 
-\noindent where {$T_{max}$} is the daily maximum temperature and {$T_{min}$} is the daily minimum temperature. {$T_{base}$} is the base temperature, which is the minimum temperature required for the growth of a particular crop. For the GDD calculations reported in the study, {$T_{base}$} is considered to be 10 $^{\circ}$C.
+\noindent where {$T_{max}$} is the daily maximum temperature and {$T_{min}$} is the daily minimum temperature. {$T_{base}$} is the base temperature, which is the minimum temperature required for the growth of a particular crop. For the GDD calculations reported in the study, {$T_{base}$} is considered to be 10 $^{\circ}$C.\\
 In this report, we present a summary of the results obtained from calculating the annual GDD in 2015 for three cities in Canada; namely: St. John's, Montreal and Calgary. As expected, the calculated GDDs varies for the selected cities. 
 
 
@@ -59,7 +59,7 @@ The data for the daily historical temperatures for the selected cities were down
 
 \begin{itemize}
 \item Download daily historical data for the three selected cities. 
-\item Calculate Daily GDD for the cities for the time range selected. 
+\item Calculate Daily GDD for cities within the time range selected. 
 \item Compute Cumulative GDD for the cities within the selected time range.
 \item Create a plot showing variations in annual GDD cycle for the chosen cities within the selected time range. 
 \item Create a plot demonstrating accumulated GDD vs time for the chosen cities within the time frame selected. 
@@ -72,7 +72,7 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \textrm{GDD} = \left(\frac{T_{max} + T_{min}}{2}\right) - T_{base}
 \end{equation}
 
-\noindent If the daily mean temperature is lower than the base temperature then $\textrm{GDD} = 0$.In other words, any temperature below $T_{base}$ is set to $T_{base}$ before calculating the average. GDDs are typically measured from the start of spring. A sample GDD calculation for a day in spring with a high of 20$^{\circ}$C and a low of 10$^{\circ}$C is calculated as follows:\vspace{5mm}
+\noindent {$T_{max}$}, {$T_{min}$}, and {$T_{base}$} are the daily maximum, daily minimum and base temperatures, respectively. If the daily mean temperature is lower than the base temperature then $\textrm{GDD} = 0$.In other words, any temperature below $T_{base}$ is set to $T_{base}$ before calculating the average. GDDs are typically measured from the start of spring. A sample GDD calculation for a day in spring with a high of 20$^{\circ}$C and a low of 10$^{\circ}$C is evaluated as follows:\vspace{5mm}
 
 \[ \left(\frac {20+10}{2}\right)-10=5 \] \par
 
@@ -80,11 +80,11 @@ Growing Degree Day (GDD) are calculated by taking the difference between the ave
 \subsection{ \bf Core Project Tasks Completed}
 
 \begin{enumerate}
-\item  Automated Download of daily historical temperature data for the selected cities based on station ID number
+\item  Automated download of daily historical temperature data for the selected cities based on station ID number
 \item  Plots showing annual cycle of min/max daily temperatures for selected Canadian cities (Fig. \ref{gdd_min-max})
 
 \begin{center}
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=3.25in]{./Plots/min_max_plot_St_Johns.png}
 
 \includegraphics[width=3.25in]{./Plots/min_max_plot_Montreal.png}
