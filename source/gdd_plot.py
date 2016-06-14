@@ -4,6 +4,7 @@ import argparse
 import os
 from extract_data_from_csv import extract_data_from_csv
 
+# Plotting GDD for a given city
 def gdd_plot(gdd, cityName, gColor):
     plt.subplot(1,1,1)
     X = np.linspace(1, 12, 365, endpoint=True)
@@ -27,6 +28,7 @@ def gdd_plot(gdd, cityName, gColor):
     return plt
     
 def Main():
+    # Taking the arguments from command line. 
     parser = argparse.ArgumentParser()
     parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
     parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
@@ -36,6 +38,7 @@ def Main():
 	
     cityData = []
     for i in range(len(args.stationId)):
+    	# Reading the data from downloaded .csv files. 
         CurrentPath = os.getcwd()
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
         Data, Date, maxTemp, minTemp = extract_data_from_csv(FilePath)
