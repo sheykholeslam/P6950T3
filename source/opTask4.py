@@ -91,11 +91,11 @@ def Main():
     plot = make_plot(cityData)
     output_file("./Plots/Op4.html", title="Optional Task # 4")
     save(plot)
-	scr, div = components(plot)
+    scr, div = components(plot)
     fs = open("./Plots/Op4.scr", 'w')
-	fs.write(scr)
-	fd = open("./Plots/Op4.div", 'w')	
-	fd.write(div) 
+    fs.write(scr)
+    fd = open("./Plots/Op4.div", 'w')	
+    fd.write(div) 
 	
 	if __name__ == '__main__':
     Main()
