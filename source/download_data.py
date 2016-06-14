@@ -7,6 +7,7 @@ import os
 import argparse
 from save_data_as_csv import save_data_as_csv
 
+# Downloading the weather historical data from web
 def download_data(startYear, endYear, stationId, cityName):
     while (startYear <= endYear):
         url = 'http://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID='+str(stationId)+'&Year='+str(startYear)+'&Month=12&Day=31&timeframe=2&submit= Download+Data'
@@ -18,10 +19,14 @@ def download_data(startYear, endYear, stationId, cityName):
         startYear = startYear + 1
         currentpath = os.getcwd()
         filepath= (currentpath+'/DataFiles/GDD_Data_'+cityName+'.csv')
+        
+        # Saving back the updated DataFrame to .csv file. 
         save_data_as_csv(Data, filepath)
+        # Removing unnecessary downloaded files. 
         os.remove(filename)
  
 def Main():
+    # Taking the arguments from command line. 
     parser = argparse.ArgumentParser()
     parser.add_argument("startYear", help="Please insert start year for weather history data.", type=int)
     parser.add_argument("endYear", help="Please insert end year for weather history data.", type=int)
