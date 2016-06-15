@@ -46,7 +46,7 @@ def percentile_Calculation(MinTemp,MaxTemp,percent):
 def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25_Min,Parcentile_25_Max,MinTemp,MaxTemp,plotDate):
     
     plot = Figure(x_axis_type="datetime", plot_width=1000, tools="", toolbar_location=None)
-    plot.title = "GDD"
+    plot.title = "Daily Growing Degree Days"
     colors = Blues4[0:3]
    
     plot.circle(MaxTemp,MinTemp, alpha=0.9, color="#66ff33", fill_alpha=0.2, size=10,source=source,legend ='2015')
