@@ -49,11 +49,11 @@ $ make report.pdf
 
 Project Requirements and Tasks:
 ----------------
-<b>Link :</b> [Click Here](https://github.com/sheykholeslam/P6950T3/blob/master/Project_Requirements.md)
+<b>Link :</b> <a href="https://github.com/sheykholeslam/P6950T3/blob/master/Project_Requirements.md" target="_blank">Click Here</a>
 
 Web-based Presentation:
 ----------------
-<b>Link :</b> [Click Here](https://sheykholeslam.github.io/P6950T3/)
+<b>Link :</b> <a href="https://sheykholeslam.github.io/P6950T3/" target="_blank">Click Here</a>
 
 
 Contents:
