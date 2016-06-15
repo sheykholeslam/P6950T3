@@ -83,7 +83,9 @@ $(p)FinalTask_Calgary.html : $(s)extract_data_from_csv.py $(s)finalTask.py $(d)G
 	python3 $(s)finalTask.py $(stationId) $(cityName)
 
 test : $(t)*.py
-	python3 $(t)*.py
+	python3 $(t)test_calculate_GDD.py && echo "CALCULATE_GDD... PASSED" || echo "CALCULATE_GDD... FAILED"
+	python3 $(t)test_download_data.py && echo "DOWNLOAD_DATA... PASSED" || echo "DOWNLOAD_DATA... FAILED"
+	python3 $(t)test_download_data.py && echo "EXTRACT_DATA... PASSED" || echo "EXTRACT_DATA... FAILED"
 	
 report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St_Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St_Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html $(p)Op3.png $(p)Op4.html $(p)Op5.html $(p)FinalTask_St_Johns.html $(p)FinalTask_Montreal.html $(p)FinalTask_Calgary.html 
 	pdflatex $(r)report.tex
