@@ -40,6 +40,9 @@ $ make
 # To removing all the downloaded data and complied files.
 $ make clean
 
+# To run the test case. If there is no reply, that means success.  
+$ make test
+
 # To generate files by file name (Ex. report.pdf). 
 $ make report.pdf
 ```
