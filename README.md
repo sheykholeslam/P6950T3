@@ -19,7 +19,7 @@ Dependencies:
 
 Requirements:
 -------------
-- <b>Platform :</b> Mac OS X, Ubuntu, Debian, Red Hat, Fedora.
+- <b>Platform :</b> Mac OS X, Linux.
 
 Program Execute:
 ----------------
