@@ -3,7 +3,7 @@ s = ./source/
 r = ./source/Report/
 d = ./DataFiles/
 p = ./Plots/
-t = ./test/
+t = ./source/Test/
 
 # Input variables and their values
 startYear = 2015
