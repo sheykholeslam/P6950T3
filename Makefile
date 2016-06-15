@@ -69,11 +69,23 @@ $(p)Op5.html : $(s)extract_data_from_csv.py $(s)opTask5.py $(d)GDD_Data_Calgary.
 	mkdir -p Plots
 	#bokeh serve $(s)opTask5.py
 	python3 $(s)opTask5.py $(stationId) $(cityName)
+	
+$(p)FinalTask_St_Johns.html : $(s)extract_data_from_csv.py $(s)finalTask.py $(d)GDD_Data_St_Johns.csv
+	mkdir -p Plots
+	python3 $(s)finalTask.py $(stationId) $(cityName)
+
+$(p)FinalTask_Montreal.html : $(s)extract_data_from_csv.py $(s)finalTask.py $(d)GDD_Data_Montreal.csv
+	mkdir -p Plots
+	python3 $(s)finalTask.py $(stationId) $(cityName)
+	
+$(p)FinalTask_Calgary.html : $(s)extract_data_from_csv.py $(s)finalTask.py $(d)GDD_Data_Calgary.csv
+	mkdir -p Plots
+	python3 $(s)finalTask.py $(stationId) $(cityName)
 
 test : $(t)*.py
 	python3 $(t)*.py
 	
-report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St_Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St_Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html $(p)Op3.png $(p)Op4.html $(p)Op5.html 
+report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St_Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St_Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html $(p)Op3.png $(p)Op4.html $(p)Op5.html $(p)FinalTask_St_Johns.html $(p)FinalTask_Montreal.html $(p)FinalTask_Calgary.html 
 	pdflatex $(r)report.tex
 	pdflatex $(r)report.tex
 	rm -f report.log report.aux report.toc report.out

@@ -1,11 +1,13 @@
 from bokeh.charts import Donut, show, output_file
 from bokeh.charts.utils import df_from_json
 from bokeh.sampledata.olympics2014 import data
-from bokeh.charts import Bar, output_file, show
+from bokeh.charts import Bar, output_file, show, save
 import csv
 import os
 import numpy as np
 import pandas as pd
+import argparse
+from extract_data_from_csv import extract_data_from_csv
 
 ## Reference
 ## http://store.msuextension.org/publications/AgandNaturalResources/MT200103AG.pdf
@@ -36,20 +38,27 @@ def getGroup(GDD):
 
     return group
 
-CurrentPath = os.getcwd()
-FilePath= (CurrentPath+'/DataFiles/GDD_Data.csv')
-Hourly_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = "\t" ,skiprows=0)
-Data = pd.DataFrame(Hourly_Data)
-Data.replace('', np.nan, inplace = True)
-Data = Data.dropna()
-Index = Data.keys()
-Date, MinTemp, MaxTemp, GDD = np.array(Data[Index[0]]),np.array(Data[Index[1]]), np.array(Data[Index[2]]), np.array(Data[Index[5]])
-Data['group'] = getGroup(Data[Index[5]])
-Data['month'] = pd.DatetimeIndex(Data['date']).month
+def Main():
+    # Taking the arguments from command line. 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
+    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
+    
+    args = parser.parse_args()
+	
+    CurrentPath = os.getcwd()
+	
+    for i in range(len(args.stationId)):
+        FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
+        Data, Date, MaxTemp, MinTemp = extract_data_from_csv(FilePath)
+        Index = Data.keys()
+        Data['group'] = getGroup(Data[Index[4]])
+        Data['month'] = pd.DatetimeIndex(Date).month
 
+        plot = Bar(Data,label='month', values='GDD',agg='median', group='group',
+        title="GDD of Barley In Bar Chart for "+args.cityName[i], legend='top_left')
+        output_file("./Plots/FinalTask_"+args.cityName[i]+".html", title="Final Task for ("+args.cityName[i]+")")
+        save(plot)
 
-p = Bar(Data,label='month', values='GDD',agg='median', group='group',
-        title="GDD of Barley In Bar", legend='top_left')
-
-output_file("GDDVisualization.html")
-show(p)
+if __name__ == '__main__':
+    Main()

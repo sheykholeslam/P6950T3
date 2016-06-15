@@ -4,7 +4,11 @@ import os
 
 # Read the data from a csv file by given file path.
 def extract_data_from_csv(FilePath):
-    File_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
+    try:
+        File_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
+    except Exception as e:
+        print("Error in Reading", FilePath)
+        print(e)
     Data = pd.DataFrame(File_Data)
     Data.replace('', np.nan, inplace = True)
     Data = Data.dropna()
