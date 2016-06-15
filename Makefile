@@ -14,7 +14,6 @@ stationId = -st 50089 51157 50430
 cityName = -ct 'St_Johns' 'Montreal' 'Calgary'
 # Define the seperate plot line color for each city. 
 gColor = -gc 'blue' 'red' 'green'
-PY=python3
 
 all : report.pdf
 
@@ -70,17 +69,20 @@ $(p)Op5.html : $(s)extract_data_from_csv.py $(s)opTask5.py $(d)GDD_Data_Calgary.
 	mkdir -p Plots
 	#bokeh serve $(s)opTask5.py
 	python3 $(s)opTask5.py
+
+test : $(t)*.py
+	python3 $(t)*.py
 	
 report.pdf : $(r)report.tex $(p)GDD_Plot.png $(p)min_max_plot_St_Johns.png $(p)min_max_plot_Montreal.png $(p)min_max_plot_Calgary.png $(p)Op1_St_Johns.html $(p)Op1_Montreal.html $(p)Op1_Calgary.html $(p)Op3.png $(p)Op4.html $(p)Op5.html 
 	pdflatex $(r)report.tex
 	pdflatex $(r)report.tex
+	rm -f report.log report.aux report.toc report.out
 	
 clean : 
 	rm -rf *.csv $(s)__pycache__ DataFiles Plots
 	rm -f report.log report.aux report.pdf report.toc
 
-test :
-	$(PY) test/*.py
+
 help:
 	@echo "Please make sure you have installed pdflatex program.
 	@echo "# Calling the Makefile"
