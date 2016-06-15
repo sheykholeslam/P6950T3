@@ -68,7 +68,7 @@ $(p)Op4.html : $(s)extract_data_from_csv.py $(s)opTask4.py $(d)GDD_Data_Calgary.
 $(p)Op5.html : $(s)extract_data_from_csv.py $(s)opTask5.py $(d)GDD_Data_Calgary.csv $(d)GDD_Data_Montreal.csv $(d)GDD_Data_St_Johns.csv
 	mkdir -p Plots
 	#bokeh serve $(s)opTask5.py
-	python3 $(s)opTask5.py
+	python3 $(s)opTask5.py $(stationId) $(cityName)
 
 test : $(t)*.py
 	python3 $(t)*.py

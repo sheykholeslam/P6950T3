@@ -43,10 +43,10 @@ def percentile_Calculation(MinTemp,MaxTemp,percent):
     return MinTemp,MaxTemp
 
 # Making Bokeh plot based on 5-95% and 25-75% percentile values for a given city
-def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25_Min,Parcentile_25_Max,MinTemp,MaxTemp,plotDate):
+def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25_Min,Parcentile_25_Max,MinTemp,MaxTemp,plotDate, cityName):
     
-    plot = Figure(x_axis_type="datetime", plot_width=1000, tools="", toolbar_location=None)
-    plot.title = "Daily Growing Degree Days"
+    plot = Figure(x_axis_type="datetime", plot_width=1000, tools="", title_text_font_size='12pt', toolbar_location=None)
+    plot.title = 'Optional Task # 1 : Growing Degree-day for '+cityName
     colors = Blues4[0:3]
    
     plot.circle(MaxTemp,MinTemp, alpha=0.9, color="#66ff33", fill_alpha=0.2, size=10,source=source,legend ='2015')
@@ -55,10 +55,10 @@ def make_plot(source,AverageTemp,Parcentile_5_Min,Parcentile_5_Max,Parcentile_25
     plot.line(plotDate,AverageTemp,source=source,line_color='Red', line_width=0.5, legend='AverageTemp')
    
     plot.border_fill_color = "whitesmoke"
-    plot.xaxis.axis_label = None
+    plot.xaxis.axis_label = "Months"
     plot.yaxis.axis_label = "Temperature (C)"
-    plot.axis.major_label_text_font_size = "8pt"
-    plot.axis.axis_label_text_font_size = "8pt"
+    plot.axis.major_label_text_font_size = "10pt"
+    plot.axis.axis_label_text_font_size = "12pt"
     plot.axis.axis_label_text_font_style = "bold"
     plot.x_range = DataRange1d(range_padding=0.0, bounds=None)
     plot.grid.grid_line_alpha = 0.3
@@ -106,7 +106,7 @@ def Main():
         Min_5_95, Max_5_95 = percentile_Calculation(MinTemp,MaxTemp,percent)
         percent = 25
         Min_25_75, Max_25_75 = percentile_Calculation(MinTempOrigin,MaxTempOrigin,percent)
-        plot = make_plot(source,AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75,MinTemp,MaxTemp,plotDate)
+        plot = make_plot(source,AverageTemp,Min_5_95,Max_5_95,Min_25_75,Max_25_75,MinTemp,MaxTemp,plotDate, args.cityName[i])
         output_file("./Plots/Op1_"+args.cityName[i]+".html", title="Optional Task # 1 ("+args.cityName[i]+")")
         save(plot)
 

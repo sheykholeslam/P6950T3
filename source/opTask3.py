@@ -36,7 +36,7 @@ def Main():
     X = np.linspace(1, 12, 365, endpoint=True)
     for i in range(len(T_baseList)):
         c=next(color)
-        plt.plot(X, gdd_Tbase(i),c=c,label =str(T_baseList[i]))
+        plt.plot(X, gdd_Tbase(i),c=c,label ='T_base = '+str(T_baseList[i]))
     plt.legend(loc='upper left')
     ax = plt.gca() 
     ax.spines['right'].set_color('none')

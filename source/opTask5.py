@@ -9,18 +9,9 @@ from bokeh.models import ColumnDataSource, DataRange1d, Range1d, VBox, HBox, Sel
 from bokeh.palettes import Blues4
 from bokeh.plotting import Figure, output_file, show, save
 from scipy.signal import savgol_filter
+from extract_data_from_csv import extract_data_from_csv
 
-def extract_data_from_csv(FilePath):
-    File_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
-    Data = pd.DataFrame(File_Data)
-    Data.replace('', np.nan, inplace = True)
-    Data = Data.dropna()
-    Index = Data.keys()
-    Date, maxTemp, minTemp = np.array(Data[Index[1]]),np.array(Data[Index[2]]), np.array(Data[Index[3]])
-    
-    return Data, Date, maxTemp, minTemp
-
-
+# Read data from .csv and manipulating the data based on program need
 def DataSet(cityName):
     CurrentPath = os.getcwd()
     FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+cityName+'.csv')
@@ -60,7 +51,7 @@ def make_plot(src, city):
 
     return plot
 
-# set up callbacks
+# set up callbacks for list select city data update interaction
 def update_plot(attrname, old, new):
     src = DataSet(city_select.value)
     source.data.update(src.data)
@@ -68,32 +59,23 @@ def update_plot(attrname, old, new):
 
 
 def Main():
-#    parser = argparse.ArgumentParser()
-#    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
-#    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
+    # Taking the arguments from command line.
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-st", dest="stationId", nargs = '*', help="Please provide a list of station Id.")
+    parser.add_argument("-ct", dest="cityName", nargs = '*', help="Please provide a list of city names corresponding to stations.")
 	
-#    args = parser.parse_args()
-	
-    stationId = [50089, 51157, 50430]
-    cityName = ['St_Johns', 'Montreal','Calgary']
+    args = parser.parse_args()
 	
     cityData = {}
 	
-    #cities = { 
-    #    args.cityName[0] : {'ID':args.stationId[0]},
-    #    args.cityName[1] : {'ID':args.stationId[1]},
-    #    args.cityName[2] : {'ID':args.stationId[2]}
-    #}
-	
+	# Creating an object to make the list of dropdown and pass values to the make plot function. 
     cities = { 
-        cityName[0] : {'ID':stationId[0]},
-        cityName[1] : {'ID':stationId[1]},
-        cityName[2] : {'ID':stationId[2]}
+        args.cityName[0] : {'ID':args.stationId[0]},
+        args.cityName[1] : {'ID':args.stationId[1]},
+        args.cityName[2] : {'ID':args.stationId[2]}
     }
 	
-    #city = args.cityName[0]
-	
-    city = cityName[0]
+    city = args.cityName[0]
     city_select = Select(value=city, title='City:', options=list(cities.keys()))
     
     for c in cities.keys():
@@ -103,7 +85,7 @@ def Main():
     plot = make_plot(source, city)
     city_select.on_change('value', update_plot)
 	
-    # add to document
+    # Saving the plot into disk
     output_file("./Plots/Op5.html", title="Optional Task # 5")
     save(HBox(city_select, plot))
 	
