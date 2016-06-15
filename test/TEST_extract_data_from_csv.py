@@ -8,7 +8,7 @@ import pandas as pd
 import os
 
 import sys
-sys.path.append('/home/mehrzad/workspace/P6950T3/source')
+sys.path.append('./source')
 
 from extract_data_from_csv import extract_data_from_csv
 
