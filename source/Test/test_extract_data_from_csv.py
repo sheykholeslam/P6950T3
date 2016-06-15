@@ -7,9 +7,6 @@ sys.path.append('./source')
 
 from extract_data_from_csv import extract_data_from_csv
 
-
-# In[32]:
-
 def test_extract_data_from_csv():
         
     cityName = 'St_Johns'
