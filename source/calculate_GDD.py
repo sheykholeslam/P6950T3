@@ -33,8 +33,8 @@ def Main():
     	# Reading the data from downloaded .csv files. 
         CurrentPath = os.getcwd()
         FilePath= (CurrentPath+'/DataFiles/GDD_Data_'+args.cityName[i]+'.csv')
-        Hourly_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
-        Data = pd.DataFrame(Hourly_Data, columns = ['Date/Time','Max Temp (Â°C)', 'Min Temp (Â°C)'])
+        Daily_Data = pd.read_csv(FilePath, encoding = 'ISO-8859-1', delimiter = ',' ,skiprows=0)
+        Data = pd.DataFrame(Daily_Data, columns = ['Date/Time','Max Temp (Â°C)', 'Min Temp (Â°C)'])
         Data.replace('', np.nan, inplace = True)
         Data = Data.dropna()
 	
