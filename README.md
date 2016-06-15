@@ -75,8 +75,11 @@ Contents:
 <tr><td>opTask3.py</td><td>Optional Task # 3.</td></tr>
 <tr><td>opTask4.py</td><td>Optional Task # 4.</td></tr>
 <tr><td>opTask5.py</td><td>Optional Task # 5.</td></tr>
+<tr><td>finalTask.py</td><td>Final Free Choice Task</td></tr>
 <tr><td>report.tex</td><td>LaTeX source file for the report.</td></tr>
 <tr><td>gh-pages/index.html</td><td>Web based presentation source code.</td></tr>
+<th colspan="2" align=left>Test File</th>
+<tr><td>Test_calculate_GDD.py</td><td>Testing calculate_GDD function.</td></tr>
 <th colspan="2" align=left>Data Files</th>
 <tr><td>report.pdf</td><td>Function to calculate GDD from a given data.</td></tr>
 <tr><td>GDD_Data.csv</td><td>Downloaded CSV data file.</td></tr>
