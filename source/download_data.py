@@ -15,7 +15,11 @@ def download_data(startYear, endYear, stationId, cityName):
             filename = wget.download(url)
         except:
             raise ValueError("Downloading file is failed!!!")
-        File_Data = pd.read_csv(filename, encoding = 'ISO-8859-1', delimiter = ',', skiprows=25)
+        try:
+            File_Data = pd.read_csv(filename, encoding = 'ISO-8859-1', delimiter = ',', skiprows=25)
+        except Exception as e:
+            print("Error in Reading", FilePath)
+            print(e)
         Data = pd.DataFrame(File_Data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
         Data.replace('', np.nan, inplace = True)
         Data = Data.dropna()       
