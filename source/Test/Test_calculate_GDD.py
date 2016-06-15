@@ -2,22 +2,6 @@ import pandas as pd
 import numpy as np
 from nose.tools import assert_equal
 
-# Checking GDD values. If the value < 0 than value = 0. 
-def checkGDD(values):
-    GDD = []
-    item = 0
-    for i in values:
-        if i >= 0:
-            item += i
-        GDD.append(item)
-    return GDD
-
-# Taking the complete DataFrame and calculating GDD. Than add the GDD values as a new column. 
-def calculate_GDD(Data, baseTemp):	
-    Data['GDD'] = ((Data['Max'] + Data['Min'])/2)- baseTemp
-    Data['GDD'] = checkGDD(Data['GDD']) 
-    return Data
-	
 def Main():
     baseTemp = 10
     # Observed Min, Max values for test purpose. 
