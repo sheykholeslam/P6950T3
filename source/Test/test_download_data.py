@@ -23,8 +23,8 @@ def test_download_data():
     try:
         currentpath = os.getcwd()
         File_Data = pd.read_csv(currentpath+'/DataFiles/GDD_Data_st.Johns.csv')
-        #Data = pd.DataFrame(File_Data, columns = ['Date/Time', 'Max Temp (°C)', 'Min Temp (°C)'])
     except:
         raise ValueError("Downloading file is failed!!!")
+
 
 test_download_data()
